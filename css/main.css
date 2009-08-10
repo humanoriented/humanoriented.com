@@ -1,0 +1,199 @@
+/* Basic stylesheet for humanoriented.com. */
+
+/* default elements ----------------- */
+html { background-color: #e5e4c6;}
+
+body {
+	background-color: #e5e4c6;
+	background: url('/img/gradientTop.gif') repeat-x;
+	color:#4c4c4b;
+	margin: 0px;
+	padding: 0px;
+}
+
+h1 {
+}
+
+
+h2 {
+ font-family: "trebuchet ms";
+}
+
+h3 {
+	font-family: arial,helvetica,sans-serif;
+	margin-top: 0px;
+	font-size: 1.5em;
+}
+
+h4 {
+	margin-bottom: 0px;
+}
+
+p {
+	margin-top: 0px;
+	}
+
+a img {
+	border: 0;
+}
+
+a:link {
+	color: #600;
+}
+a:hover {
+
+}
+a:visited {
+	color: #66695F;
+}
+
+/* reusable global elements ------------- */
+#container {
+	padding: 10px;
+}
+#logo { 
+	font-family: garamond,"times new roman",times,serif;
+	margin: 0px;
+	font-weight: normal;
+	letter-spacing: -.05em;
+	font-size: 2.5em;
+	padding: 0px;
+	color: #000;
+ }
+#tagline1 { 
+	font-family: verdana;
+	margin-top: -10px;
+	margin-bottom: 20px;
+	font-size: .8em;
+	letter-spacing: -.07em;
+	padding: 0px;
+	font-weight: normal;
+	border-top: 1px solid #333;
+ }
+#contact {
+	position: absolute;
+	right: 10px;
+	top: 5px;
+	font-family: verdana,arial,helvetica,sans-serif;
+	font-size: .6em;
+	text-align: right;
+}
+
+#main {
+	float: left;
+	width: 75%;
+}
+
+#sidebar {
+	width: 22%;
+	float: right;
+	font-family: georgia,'times new roman', serif;
+	font-size: .9em;
+}
+#feature {
+	padding: 0px;
+	background-color: #CCC9AF;
+	border: 1px solid black;
+	display: block;
+	font-family: verdana;
+}
+#feature h3 {
+	font-family: verdana,arial,sans-serif;
+	font-weight: bold;
+	padding: 3px;
+	background-color: #AAA98F;
+	font-size: 1em;
+	margin-top: 0px;
+	margin-bottom: 5px;
+}
+#feature p {
+	margin-left: 5px;
+	margin-right: 5px;
+	font-size: .7em;
+}
+
+#footer { 
+ border-top: 1px solid black;
+ padding-top: 10px;
+ clear: both;
+ }
+
+#quote {          
+	margin-top: 62px;
+	margin-bottom: 0px;
+	font-family: "times new roman",times,serif;
+	font-style: italic;
+	font-size: 1.8em;
+}
+#credit {
+	margin-left:50%;
+	margin-top: 5px;
+	font-size: 1em;
+}
+#copyleft {
+	clear: both;
+	margin-top: 10px;
+	text-align: center;
+	font: .7em verdana;
+	color: #CCC99F;
+}
+#copyleft a:link {
+	color: #CCC99F;
+	}
+#copyleft a:hover {
+	color: #CC0000;
+	}
+
+/* content elements ----------------- */
+
+#mapGoogle {
+	margin-bottom: 20px;
+	height: 300px;
+	border-left: 1px solid #CCCCCC;
+	border-top: 1px solid #CCCCCC;
+	border-right: 1px solid black;
+ 	border-bottom: 1px solid black;
+}
+
+#essays {
+	padding: 0px;
+	background-color: #CCC9AF;
+	border: 1px solid black;
+	display: block;
+	font-family: verdana;
+	margin-bottom: 20px;
+}
+#essays h3 {
+	font-family: verdana,arial,sans-serif;
+	font-weight: bold;
+	padding: 3px;
+	background-color: #AAA98F;
+	font-size: 1em;
+	margin-top: 0px;
+	margin-bottom: 5px;
+}
+#essays p {
+	margin-left: 5px;
+	margin-right: 5px;
+	font-size: .7em;
+}
+
+table#links td {
+	font-family: "lucida grande", "helvetica neue", helvetica, arial, sans-serif;
+	font-size: 1.2em;
+}
+
+ul#clients {
+	list-style-type: none;
+	margin: 0px;
+	padding: 0px;
+}
+ul#clients li {
+	margin-bottom: 10px;
+}
+
+.movable { cursor: pointer; }
+
+div#wcs2n {
+  margin-top: 72px;
+}

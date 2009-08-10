@@ -1,0 +1,4 @@
+RedirectMatch /basecamp/(.*) http://projects.humanoriented.com/basecamp/$1
+Redirect 301 /resume http://humanoriented.com/ybakos
+AddType application/xhtml+xml .xhtml
+AddHandler server-parsed .html

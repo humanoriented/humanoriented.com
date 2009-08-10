@@ -1,0 +1,1424 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Strict//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en-us">
+<head> 
+<title>Markup Done Right: Yong Joseph Bakos</title>
+<meta name="author" content="Yong Bakos" >
+<meta http-equiv="content-type" content="text/html;charset=utf-8" >
+<meta http-equiv="Content-Style-Type" content="text/css" >
+<link rel="stylesheet" type="text/css" href="/css/resume.css" >
+<link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon" >
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+_uacct = "UA-1044655-1";
+urchinTracker();
+//]]>
+</script>
+</head>
+<body id="codesample">
+
+<h1>Sample Code</h1>
+<address>
+    126 W. Bayaud Ave #2<br>
+    Denver, CO 80223<br>
+    (303) 653 3017<br>
+    <a href="mailto:ybakos@humanoriented.com" title="E-mail Yong">ybakos@humanoriented.com</a>
+</address>
+
+
+<h2>Markup Done Right</h2>
+
+<h3>The Problem</h3>
+          
+<p>It's no secret: creating Web pages is easy! But if you ask most 'Web designers' what structural markup is, or why semantics are important they will probably snort, look at you funny and return to their Dreamweaver layout. And if you ask them to build you a Web site, chances are they'll create one that looks nice but is riddled with problems due to a lack of understanding of how browsers and http work, and the importance of standards-compliant markup.</p>
+
+<p>Here's what the site looked like in Photoshop, created by a very competent graphic designer:</p>
+
+<p><img style="border: 1px solid black;" src="/img/ybakos/photoshop-layout.jpg" alt="Photoshop mockup" title="Photoshop mockup" /></p>
+
+<p>This is actually a slightly complicated layout. In addition, there are three tabs that required a 'hover' effect and each section of the site needed to have certain tabs highlighted. The buttons also required a 'hover' effect.</p>
+
+<p>The client came to me asking for some CSS 'engineering,' as their Web designers just couldn't figure out how to make certain layout changes to their site without breaking everything else. The existing site used a lot of javascript and images for the hover effects; complex, ugly nested markup; non-externalized style declarations; completely lacking in alt and title attributes and other semantically meaningful markup; and used tiled images that resulted in numerous http requests just to load this simple screen.</p>
+
+<pre>
+&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;
+&lt;html xmlns="http://www.w3.org/1999/xhtml"&gt;
+&lt;head&gt;
+&lt;title&gt;Welcome to real-a-save!&lt;/title&gt;
+&lt;meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /&gt;
+
+&lt;style type="text/css"&gt;
+&lt;!--
+
+div { z-index: 2; }
+
+
+#sellBG{
+    position:absolute;
+    left:395px;
+    top:115px;    
+    width:350px;
+    height:314px;
+    background-color: #E66000;
+    z-index: 1;
+}
+
+#buyBG{
+    position:absolute;
+    left:0px;
+    top:135px;
+    width:370px;
+    height:354px;
+    z-index: 1;
+    background-color: #F58C00;
+}
+
+#findBG {
+    position:absolute;
+    left:50px;
+    top:460px;
+    width:650px;
+    height:85px;
+    background-color:#FFFFFF;
+    z-index: 1;
+}
+#Table_01 {
+    position:absolute;
+    left:120px;
+    top:0px;
+    width:760px;
+    height:100%;
+}
+
+
+#buySellOverlap_ {
+    position:absolute;
+    left:365px;
+    top:115px;
+    width:30px;
+    height:374px;
+}
+
+#sellTop_ {
+    position:absolute;
+    left:395px;
+    top:115px;
+    width:365px;
+    height:15px;
+}
+
+#homSellText_ {
+    position:absolute;
+    left:395px;
+    top:130px;
+    width:350px;
+    height:108px;
+}
+
+#sellRight_ {
+    position:absolute;
+    left:745px;
+    top:130px;
+    width:15px;
+    height:306px;
+}
+
+#buyLeft_ {
+    position:absolute;
+    left:0px;
+    top:135px;
+    width:15px;
+    height:354px;
+}
+
+#buyTop_ {
+    position:absolute;
+    left:15px;
+    top:135px;
+    width:350px;
+    height:15px;
+}
+
+#homeBuyText_ {
+    position:absolute;
+    left:65px;
+    top:150px;
+    width:300px;
+    height:113px;
+}
+
+#homeSellBullets_ {
+    position:absolute;
+    left:415px;
+    top:238px;
+    width:20px;
+    height:116px;
+}
+
+#Slice-26_ {
+    position:absolute;
+    left:435px;
+    top:238px;
+    width:275px;
+    height:146px;
+}
+
+#homeBullets_ {
+    position:absolute;
+    left:40px;
+    top:263px;
+    width:25px;
+    height:84px;
+}
+
+#Slice-30_ {
+    position:absolute;
+    left:65px;
+    top:263px;
+    width:300px;
+    height:114px;
+}
+
+#homeBuyButton_ {
+    position:absolute;
+    left:121px;
+    top:377px;
+    width:126px;
+    height:28px;
+}
+
+#homeSellButton_ {
+    position:absolute;
+    left:511px;
+    top:384px;
+    width:126px;
+    height:28px;
+}
+
+#sellBottom_ {
+    position:absolute;
+    left:395px;
+    top:421px;
+    width:350px;
+    height:15px;
+}
+
+#findOverlap_ {
+    position:absolute;
+    left:15px;
+    top:446px;
+    width:350px;
+    height:43px;
+}
+
+#findTop_ {
+    position:absolute;
+    left:395px;
+    top:446px;
+    width:300px;
+    height:15px;
+}
+
+#findRight_ {
+    position:absolute;
+    left:695px;
+    top:446px;
+    width:15px;
+    height:103px;
+}
+
+#findLeft_ {
+    position:absolute;
+    left:50px;
+    top:489px;
+    width:15px;
+    height:60px;
+}
+
+#Slice-51_ {
+    position:absolute;
+    left:90px;
+    top:489px;
+    width:605px;
+    height:45px;
+}
+
+#findBottom_ {
+    position:absolute;
+    left:65px;
+    top:534px;
+    width:630px;
+    height:15px;
+}
+
+
+--&gt;&lt;/style&gt;
+&lt;link rel="stylesheet" type="text/css" href="home.css"/&gt;
+&lt;link rel="stylesheet" type="text/css" href="header.css"/&gt;
+&lt;link rel="stylesheet" type="text/css" href="footer.css"/&gt;
+&lt;link rel="stylesheet" type="text/css" href="common.css"/&gt;
+
+&lt;/head&gt;
+&lt;body&gt;
+&lt;!-- begin header --&gt;
+&lt;div id="header"&gt;
+
+    &lt;div id="Slice-01_"&gt;    &lt;/div&gt; 
+
+
+    &lt;div id="headerPad"&gt;
+
+        &lt;div id="homeUpperNavLC_"&gt;
+              &lt;div class="uppernavbox"&gt;&lt;p&gt;Welcome, BigLongNameLong &lt;a href=""&gt;My Real-a-Save&lt;/a&gt; / &lt;a href=""&gt;Sign Out&lt;/a&gt;&lt;/p&gt;&lt;/div&gt;
+            &lt;div class="subhead"&gt;&lt;a href=""&gt;FAQs&lt;/a&gt; / &lt;a href=""&gt;Calculate You Savings&lt;/a&gt; / &lt;a href=""&gt;About Us&lt;/a&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div id="homeLogo_"&gt;
+            &lt;img id="homeLogo" src="img/homeLogo.gif" width="275" height="62" alt="" /&gt;
+        &lt;/div&gt;
+
+
+            &lt;div id="homeBuyTab_"&gt;
+            &lt;a class="buytab" href=""&gt;&nbsp;&lt;/a&gt;        &lt;/div&gt;
+        &lt;div id="homeSellTab_"&gt;
+            &lt;a class="selltab" href=""&gt;&nbsp;&lt;/a&gt;
+        &lt;/div&gt;
+        &lt;div id="homeFindTab_"&gt;
+            &lt;a class="findtab" href=""&gt;&nbsp;&lt;/a&gt;
+        &lt;/div&gt;
+    &lt;/div&gt; 
+        &lt;div id="homeHealineSpace"&gt;&lt;/div&gt;
+        &lt;div id="homeHealine_" class="homeHline"&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;!-- end header --&gt;
+&lt;div id="Table_01"&gt;
+    &lt;div id="buySellOverlap_"&gt;
+        &lt;img id="buySellOverlap" src="img/buySellOverlap.gif" width="30" height="374" alt="" /&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Background box for sell --&gt;
+    &lt;div id="sellBG""&gt;&lt;/div&gt;
+    &lt;div id="sellTop_"&gt;
+        &lt;img id="sellTop" src="img/sellTop.gif" width="365" height="15" alt="" /&gt;
+    &lt;/div&gt;
+    &lt;div id="homSellText_"&gt;
+        &lt;img id="homSellText" src="img/homSellText.gif" width="350" height="108" alt="" /&gt;
+    &lt;/div&gt;
+    &lt;div id="sellRight_"&gt;
+        &lt;img id="sellRight" src="img/sellRight.gif" width="15" height="306" alt="" /&gt;
+    &lt;/div&gt;
+    &lt;div id="buyLeft_"&gt;
+        &lt;img id="buyLeft" src="img/buyLeft.gif" width="15" height="354" alt="" /&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Big BG Box that lies behind buy box for BG colors --&gt;
+    &lt;div id="buyBG"&gt;&lt;/div&gt;
+    &lt;div id="buyTop_"&gt;
+        &lt;img id="buyTop" src="img/buyTop.gif" width="350" height="15" alt="" /&gt;
+    &lt;/div&gt;
+    &lt;div id="homeBuyText_"&gt;
+        &lt;img id="homeBuyText" src="img/homeBuyText.gif" width="300" height="113" alt="" /&gt;
+    &lt;/div&gt;
+    &lt;div id="homeSellBullets_"&gt;
+        &lt;img id="homeSellBullets" src="img/homeSellBullets.gif" width="20" height="116" alt="" /&gt;
+    &lt;/div&gt;
+    &lt;div id="Slice-26_" class="dealText"&gt;&lt;div style="height:40px; margin-left:5px;"&gt;Get full-service representation at a&lt;br /&gt;
+                          fraction of the price.&lt;/div&gt;                        
+                        &lt;div style="height:55px; margin-left:5px;"&gt;Receive complete MLS exposure,&lt;br /&gt;online marketing, yard sign, lock&lt;br /&gt;
+                        box, full-color brochures, and more.&lt;/div&gt;
+                        &lt;div style="margin-left:5px;"&gt;Save thousands compared to&lt;br /&gt;traditional brokers.&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div id="homeBullets_"&gt;
+        &lt;img id="homeBullets" src="img/homeBullets.gif" width="25" height="84" alt="" /&gt;
+    &lt;/div&gt;
+    &lt;div id="Slice-30_" class="dealText"&gt;&lt;div style="height:25px"&gt;Locate the home you'd like to buy.&lt;/div&gt;
+                          &lt;div style="height:40px"&gt;Let us handle everything, from&lt;br /&gt;negotiations to closing.&lt;/div&gt;
+                        &lt;div&gt;Receive 75% of our commision at&lt;br /&gt;
+                        closing.&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div id="homeBuyButton_"&gt;
+        &lt;a href="" class="buttonrollover"&gt;&nbsp;&lt;/a&gt;    &lt;/div&gt;
+    &lt;div id="homeSellButton_"&gt;
+        &lt;a href="" class="buttonrollover"&gt;&nbsp;&lt;/a&gt;
+    &lt;/div&gt;
+    &lt;div id="sellBottom_"&gt;
+        &lt;img id="sellBottom" src="img/sellBottom.gif" width="350" height="15" alt="" /&gt;
+    &lt;/div&gt;
+    &lt;div id="findOverlap_"&gt;
+        &lt;img id="findOverlap" src="img/findOverlap.gif" width="350" height="43" alt="" /&gt;
+    &lt;/div&gt;
+    &lt;div id="findTop_"&gt;
+        &lt;img id="findTop" src="img/findTop.gif" width="300" height="15" alt="" /&gt;
+    &lt;/div&gt;
+    &lt;div id="findRight_"&gt;
+        &lt;img id="findRight" src="img/findRight.gif" width="15" height="103" alt="" /&gt;
+    &lt;/div&gt;
+
+    &lt;div id="findBG"&gt;&lt;/div&gt;
+    &lt;div id="findLeft_"&gt;
+        &lt;img id="findLeft" src="img/findLeft.gif" width="15" height="60" alt="" /&gt;
+    &lt;/div&gt;
+    &lt;div id="Slice-51_" class="findSelect"&gt;
+      Select an Area: &lt;br/&gt;
+      &lt;a href=""&gt;Boulder/Fort Collins/Northern Colorado&lt;/a&gt;&lt;span class="findSpacer"&gt;&nbsp;&lt;/span&gt;
+      &lt;a href=""&gt;Denver Metro Area&lt;/a&gt;&lt;span class="findSpacer"&gt;&nbsp;&lt;/span&gt;&lt;a href=""&gt;Colorado Springs&lt;/a&gt;
+    &lt;/div&gt;
+    &lt;div id="findBottom_"&gt;
+        &lt;img id="findBottom" src="img/findBottom.gif" width="630" height="15" alt="" /&gt;
+    &lt;/div&gt;
+&lt;/div&gt;  &lt;!-- *** END MAIN BODY CONTAIN --&gt;
+&lt;div id="footer"&gt;
+    &lt;!-- **** BEGIN FOOTER CONTAIN *** --&gt;
+
+        &lt;div id="Slice-54_"&gt;&lt;/div&gt;
+        &lt;div id="footerPad"&gt;
+        &lt;div id="homeRealtorLogos_"&gt;
+            &lt;img id="homeRealtorLogos" src="img/homeRealtorLogos.gif" width="106" height="39" alt="" /&gt;        &lt;/div&gt;
+        &lt;div id="Slice-58_"  class="footer"&gt;&lt;a href=""&gt;Buyers&lt;/a&gt; / &lt;a href=""&gt;Sellers&lt;/a&gt; / &lt;a href=""&gt;Find a Home&lt;/a&gt; / 
+        &lt;a href=""&gt;FAQ&lt;/a&gt; / &lt;a href=""&gt;Calculate Your Savings&lt;/a&gt; / &lt;a href=""&gt;About Us&lt;/a&gt;&lt;br /&gt;
+            &lt;a href=""&gt;Terms of Use&lt;/a&gt; / &lt;a href=""&gt;Privacy Policy&lt;/a&gt; &copy;2007 Real-a-Save, LLC&lt;br&gt;&lt;br&gt;
+            4450 Arapahoe Avenue, Suite 100, Boulder CO 80303&lt;br&gt;
+            Phone 303-415-2541 / Fax 303-731-1646 / &lt;a href="mailto:info@realasave.com"&gt;info@realasave.com&lt;/a&gt;        &lt;/div&gt;
+        &lt;div id="homePhone_"&gt;
+            &lt;img id="homePhone" src="img/homePhone.gif" width="123" height="39" alt="" /&gt;        &lt;/div&gt;
+        &lt;/div&gt;
+&lt;/div&gt;
+    &lt;!-- **** END FOOTER CONTAIN *** --&gt;
+
+
+&lt;/body&gt;
+&lt;/html&gt;    
+</pre>
+
+<p>If you don't recognize the numerous problems with this, you're probably a normal person. But to a real developer, this thing is a nightmare waiting to be woken up from. Rather than make the simple changes required I decided to fix the site so ongoing maintenance wouldn't cause my brain to leak out of my ears.</p>
+
+<h3>The Solution</h3>
+
+<p>Rather than rag on about the problems, here's a list of things I changed:</p>
+
+<ul style="font-family: 'helvetica neue', arial, sans-serif;">
+    <li>Externalize all styles</li>
+    <li>Make all style, id and class names meaningful</li>
+    <li>Reduce the number of http requests, and speed up the site</li>
+    <li>Replace all the strange markup with a simple structure</li>
+    <li>Wrap all content in semantically meaningful markup (eg, headers get &lt;h1&gt;, lists get &lt;ul&gt;, etc)</li>
+    <li>Replace javascript hover effects with pure css, sprite-based approaches</li>
+    <li>'SEO' the content and markup appropriately</li>
+</ul>
+
+<p>In the end, you get something more like this:</p>
+
+<pre>
+&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;
+&lt;html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"&gt;
+&lt;head&gt;
+&lt;title&gt;Colorado Real Estate &amp;gt;&amp;gt; Real-A-Save of Denver CO and Boulder Colorado&lt;/title&gt;
+&lt;meta name="keywords" content="Colorado real estate, CO real estate, Denver CO real estate, Denver real estate, boulder CO real estate, boulder Colorado real estate, Colorado realtor, Colorado property, Colorado homes for sale" /&gt;
+&lt;meta name="description" content="Denver Colorado Real Estate Co announces discounted real estate listings service. Buy your Colorado home with Real-a-Save ofDenver CO and receive 75% back from our Realtors commission.  Sell your Colorado home for $2500." /&gt; 
+&lt;meta name="author" content="Real-A-Save" /&gt;
+&lt;meta http-equiv="content-type" content="text/html;charset=utf-8" /&gt;
+&lt;meta http-equiv="Content-Style-Type" content="text/css" /&gt;
+&lt;link rel="stylesheet" type="text/css" href="/css/main.css" /&gt;
+&lt;link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon" /&gt;
+&lt;link rel="icon" href="/img/favicon.ico" /&gt;
+&lt;/head&gt;
+&lt;body id="home"&gt;
+&lt;div id="headerWrapper"&gt;
+&lt;div id="header"&gt;
+    &lt;div id="logo"&gt;
+        &lt;p&gt;&lt;a href="http://www.realasave.com/" title="Real-a-Save, a Boulder Colorado Real Estate Co."&gt;&lt;img src="/img/logo.gif" alt="Real-a-Save, a Colorado Real Estate Co."
+title="Real-a-Save. Redefining Real Estate." /&gt;&lt;/a&gt;&lt;/p&gt;
+    &lt;/div&gt;&lt;!-- /logo --&gt;
+    &lt;div id="menuTop"&gt;
+        &lt;p&gt;&lt;img src="/img/userBox-left-curve.gif" alt="Real-a-Save box left corner" /&gt;&lt;span id="userPrompt"&gt;Welcome, guest! &lt;a style="vertical-align: top;" href="/myras" title="My Real-a-Save"&gt;My Real-a-Save&lt;/a&gt;&lt;/span&gt;&lt;img src="/img/userBox-right-curve.gif" alt="Real-a-Save box right corner" /&gt;&lt;/p&gt;
+        &lt;ul&gt;
+            &lt;li&gt;&lt;a title="Real-a-save Denver Colorado Real Estate Blog" href="http://www.coloradorealestateco.com/"&gt;Blog&lt;/a&gt;&lt;/li&gt;
+            &lt;li class="piped"&gt;&lt;a title="Colorado real estate FAQ" href="/colorado-home-buy-and-sell-faqs.jsp" &gt;FAQs&lt;/a&gt;&lt;/li&gt;
+            &lt;li class="piped"&gt;&lt;a href="/colorado-real-estate-listings.jsp" title="Colorado Real Estate Listings"&gt;Our Listings&lt;/a&gt;&lt;/li&gt;
+            &lt;li class="piped"&gt;&lt;a title="about colorado real estate, Real-a-Save" href="/about-realasave-real-estate.jsp"&gt;About Us&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;&lt;!-- /menuTop --&gt;
+    &lt;div id="menuMain"&gt;
+        &lt;ul id="tabs"&gt;&lt;!-- spacing hack. The following markup needs to be on one line, or a magical space appears beneath the tabs --&gt;
+            &lt;li id="tabBuy"&gt;&lt;a href="/buy-colorado-homes.jsp" title="Buy Boulder Colorado Real Estate"&gt;&lt;/a&gt;&lt;/li&gt;&lt;li id="tabSell"&gt;&lt;a href="/colorado-real-estate-seller.jsp" title="Sell Denver Colorado Real Estate"&gt;&lt;/a&gt;&lt;/li&gt;&lt;li id="tabFind"&gt;&lt;a href="/find-colorado-real-estate.jsp" title="Find a Colorado Home"&gt;&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;&lt;!-- /spacing hack DO NOT PUT LINE BREAKS IN THIS LINE --&gt;
+    &lt;/div&gt;&lt;!-- /menuMain --&gt;
+&lt;/div&gt;&lt;!-- /header --&gt;
+&lt;/div&gt;&lt;!-- /headerWrapper --&gt;
+&lt;div id="contentWrapper"&gt;
+&lt;div id="content"&gt;
+    &lt;div id="homeSplash"&gt;
+        &lt;div id="buyerPoints"&gt;
+            &lt;ul&gt;
+                &lt;li&gt;Locate the home you'd like to buy.&lt;/li&gt;
+                &lt;li&gt;Let us handle everything, from negotiations to closing.&lt;/li&gt;
+                &lt;li&gt;Receive 75% of our commission at closing.&lt;/li&gt;
+            &lt;/ul&gt;
+            &lt;p class="btnSignup"&gt;&lt;a href="buy-colorado-homes.jsp" title="Colorado Real Estate Buyers,  Learn More"&gt;&lt;/a&gt;&lt;/p&gt;
+        &lt;/div&gt;&lt;!-- /buyerPoints --&gt;
+        &lt;div id="sellerPoints"&gt;
+            &lt;ul&gt;
+                &lt;li&gt;Get full-service representation at a fraction of the price.&lt;/li&gt;
+                &lt;li&gt;Receive complete MLS exposure, online marketing, yard sign, lock box, full-color brochures, and more.&lt;/li&gt;
+                &lt;li&gt;Save thousands compared to traditional brokers.&lt;/li&gt;
+            &lt;/ul&gt;
+            &lt;p class="btnSignup"&gt;&lt;a href="colorado-real-estate-seller.jsp" title="Colorado Real Estate Sellers, Learn More"&gt;&lt;/a&gt;&lt;/p&gt;
+        &lt;/div&gt;&lt;!-- /sellerPoints --&gt;
+        &lt;div id="searchAreas"&gt;
+            &lt;p&gt;Select an Area:&lt;/p&gt;
+            &lt;ul&gt;
+                &lt;li&gt;&lt;a href="http://coloradomlslistings.idxbroker.com/idx/search.cfm?cid=10737&amp;bid=66" title="Boulder, Ft. Collins, Northern Colorado"&gt;Boulder/Fort Collins/Northern Colorado&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="http://coloradomlslistings.idxbroker.com/idx/search.cfm?cid=10737&amp;bid=16" title="Denver"&gt;Denver Metro Area&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="http://coloradomlslistings.idxbroker.com/idx/search.cfm?cid=10737&amp;bid=68" title="Colorado Springs"&gt;Colorado Springs&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/div&gt;&lt;!-- /searchAreas --&gt;
+    &lt;/div&gt;&lt;!-- /homeSplash --&gt;
+&lt;/div&gt;&lt;!-- /content --&gt;
+&lt;p id="copy"&gt;All contents copyright &copy; 2007 realsave.com, Real-a-Save LLC&lt;/p&gt;
+&lt;/div&gt;&lt;!-- /contentWrapper --&gt;
+
+&lt;div id="footerWrapper"&gt;
+&lt;div id="footer"&gt;
+    &lt;p id="logoRealtor"&gt;&lt;img src="/img/logo-realtor.gif" alt="Realtor, Colorado" title="Certified Realtor, Colorado" /&gt;&lt;/p&gt;
+    &lt;p id="links"&gt;&lt;a href="/buy-colorado-homes.jsp" title="Buy Colorado Real Estate"&gt;Buyers&lt;/a&gt; | &lt;a href="/BuyerSignup_input.action" title="Signup to Buy a Colorado Property"&gt;Buyer Signup&lt;/a&gt; | &lt;a href="/colorado-real-estate-seller.jsp" title="Sell Your Colorado Home"&gt;Sellers&lt;/a&gt; | &lt;a href="/SellerSignup_input.action" title="Signup to Sell Your Colorado Real Estate"&gt;Seller Signup&lt;/a&gt; | &lt;a href="/realasave-colorado-real-estate-testimonials.jsp" title="realasave Colorado Real Estate Testimonials"&gt;Testimonials&lt;/a&gt;&lt;br /&gt;
+        &lt;a href="/find-colorado-real-estate.jsp" title="Find Colorado Real Estate"&gt;Find a Home&lt;/a&gt; | &lt;a href="/colorado-real-estate-listings.jsp" title="Colorado Real Estate Listings"&gt;Our Property Listings&lt;/a&gt; | &lt;a href="/colorado-home-buy-and-sell-faqs.jsp" title="Colorado Real Estate FAQs"&gt;FAQ&lt;/a&gt; | &lt;a href="/about-realasave-real-estate.jsp" title="About Real-a-Save Real Estate Company of Boulder Co"&gt;About Us&lt;/a&gt;&lt;br/&gt;
+        &lt;a href="http://www.coloradorealestateco.com/" title="Colorado Real Estate Blog"&gt;Colorado Real Estate Blog&lt;/a&gt; | &lt;a href="http://www.realasave.com/articles/" title="Colorado Real Estate Articles"&gt;Colorado Real Estate Articles&lt;/a&gt;&lt;br/&gt;
+        &lt;a href="/neighborhoods/" title="Colorado Neighborhoods"&gt;Colorado Neighborhood Info&lt;/a&gt; | 
+        &lt;a href="/realasave-denver-co-real-estate-tos.jsp" title="Terms of Use for Colorado Real Estate Company Real-a-Save"&gt;Terms of Use&lt;/a&gt; | &lt;a href="/realasave-boulder-denver-real-estate-privacy.jsp" title="Privacy Policy For Boulder Co Real-a-Save Real Estate"&gt;Privacy Policy&lt;/a&gt;
+        &lt;br/&gt;&copy; 2007 Real-a-Save LLC&lt;br /&gt;
+        Phone (303) 415-2541 | Fax (303) 731-1646 | &lt;a href="mailto:info@realasave.com" title="E-mail Real-a-Save Colorado Real Estate"&gt;info@realasave.com&lt;/a&gt;
+        &lt;br/&gt;&lt;a style="font-size: .8em" href="http://www.realestatewebmasters.com/" target="_blank"&gt;Real Estate Webmasters&lt;/a&gt;&lt;/p&gt;&lt;!-- /menuFoot --&gt;
+    &lt;p id="phone"&gt;&lt;img src="/img/phone.gif" alt="Colorado Listings, call (303) 415-2541" title="Colorado Listings, call (303) 415-2541" /&gt;&lt;/p&gt;
+    &lt;br style="clear:left;" /&gt;&nbsp;&lt;!-- footer hack --&gt;
+&lt;/div&gt;&lt;!-- /footer --&gt;
+&lt;/div&gt;&lt;!-- /footerWrapper --&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<p>This xhtml is easier to read, easier to change, standards-compliant, and optimized for search.</p>
+
+<p>More importantly, the file size is smaller and the way I approached the layout reduced the number of http requests and sped up the whole site. For example, look at the network traffic before my changes:</p>
+
+<pre>
+http://www.realasave.com/rasfront/home.html;jsessionid=16E97B8879FF5042214D1C47A8256CF9
+
+GET /rasfront/home.html;jsessionid=16E97B8879FF5042214D1C47A8256CF9 HTTP/1.1
+Host: www.realasave.com
+User-Agent: Mozilla/5.0 (Macintosh; U; PPC Mac OS X Mach-O; en-US; rv:1.8.1.1) Gecko/20061204 Firefox/2.0.0.1
+Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
+Accept-Language: en-us,en;q=0.5
+Accept-Encoding: gzip,deflate
+Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7
+Keep-Alive: 300
+Connection: keep-alive
+Cookie: JSESSIONID=16E97B8879FF5042214D1C47A8256CF9
+Cache-Control: max-age=0
+
+HTTP/1.x 200 OK
+Date: Fri, 26 Jan 2007 06:20:13 GMT
+Server: Apache/2.0.52 (CentOS)
+Content-Encoding: gzip
+Content-Language: en-US
+Content-Length: 2379
+Connection: close
+Content-Type: text/html;charset=utf-8
+----------------------------------------------------------
+http://www.realasave.com/rasfront/styles/header.css
+
+GET /rasfront/styles/header.css HTTP/1.1
+Host: www.realasave.com
+User-Agent: Mozilla/5.0 (Macintosh; U; PPC Mac OS X Mach-O; en-US; rv:1.8.1.1) Gecko/20061204 Firefox/2.0.0.1
+Accept: text/css,*/*;q=0.1
+Accept-Language: en-us,en;q=0.5
+Accept-Encoding: gzip,deflate
+Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7
+Keep-Alive: 300
+Connection: keep-alive
+Referer: http://www.realasave.com/rasfront/home.html;jsessionid=16E97B8879FF5042214D1C47A8256CF9
+Cookie: JSESSIONID=16E97B8879FF5042214D1C47A8256CF9
+If-Modified-Since: Tue, 09 Jan 2007 19:57:09 GMT
+If-None-Match: W/"2864-1168372629000"
+Cache-Control: max-age=0
+
+HTTP/1.x 304 Not Modified
+Date: Fri, 26 Jan 2007 06:20:14 GMT
+Server: Apache/2.0.52 (CentOS)
+Connection: close
+----------------------------------------------------------
+http://www.realasave.com/rasfront/styles/footer.css
+
+GET /rasfront/styles/footer.css HTTP/1.1
+Host: www.realasave.com
+User-Agent: Mozilla/5.0 (Macintosh; U; PPC Mac OS X Mach-O; en-US; rv:1.8.1.1) Gecko/20061204 Firefox/2.0.0.1
+Accept: text/css,*/*;q=0.1
+Accept-Language: en-us,en;q=0.5
+Accept-Encoding: gzip,deflate
+Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7
+Keep-Alive: 300
+Connection: keep-alive
+Referer: http://www.realasave.com/rasfront/home.html;jsessionid=16E97B8879FF5042214D1C47A8256CF9
+Cookie: JSESSIONID=16E97B8879FF5042214D1C47A8256CF9
+If-Modified-Since: Mon, 08 Jan 2007 14:55:46 GMT
+If-None-Match: W/"733-1168268146000"
+Cache-Control: max-age=0
+
+HTTP/1.x 304 Not Modified
+Date: Fri, 26 Jan 2007 06:20:14 GMT
+Server: Apache/2.0.52 (CentOS)
+Connection: close
+----------------------------------------------------------
+http://www.realasave.com/rasfront/styles/common.css
+
+GET /rasfront/styles/common.css HTTP/1.1
+Host: www.realasave.com
+User-Agent: Mozilla/5.0 (Macintosh; U; PPC Mac OS X Mach-O; en-US; rv:1.8.1.1) Gecko/20061204 Firefox/2.0.0.1
+Accept: text/css,*/*;q=0.1
+Accept-Language: en-us,en;q=0.5
+Accept-Encoding: gzip,deflate
+Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7
+Keep-Alive: 300
+Connection: keep-alive
+Referer: http://www.realasave.com/rasfront/home.html;jsessionid=16E97B8879FF5042214D1C47A8256CF9
+Cookie: JSESSIONID=16E97B8879FF5042214D1C47A8256CF9
+If-Modified-Since: Mon, 08 Jan 2007 20:45:38 GMT
+If-None-Match: W/"830-1168289138000"
+Cache-Control: max-age=0
+
+HTTP/1.x 304 Not Modified
+Date: Fri, 26 Jan 2007 06:20:14 GMT
+Server: Apache/2.0.52 (CentOS)
+Connection: close
+----------------------------------------------------------
+http://www.realasave.com/rasfront/styles/home.css
+
+GET /rasfront/styles/home.css HTTP/1.1
+Host: www.realasave.com
+User-Agent: Mozilla/5.0 (Macintosh; U; PPC Mac OS X Mach-O; en-US; rv:1.8.1.1) Gecko/20061204 Firefox/2.0.0.1
+Accept: text/css,*/*;q=0.1
+Accept-Language: en-us,en;q=0.5
+Accept-Encoding: gzip,deflate
+Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7
+Keep-Alive: 300
+Connection: keep-alive
+Referer: http://www.realasave.com/rasfront/home.html;jsessionid=16E97B8879FF5042214D1C47A8256CF9
+Cookie: JSESSIONID=16E97B8879FF5042214D1C47A8256CF9
+If-Modified-Since: Mon, 15 Jan 2007 21:22:55 GMT
+If-None-Match: W/"636-1168896175000"
+Cache-Control: max-age=0
+
+HTTP/1.x 304 Not Modified
+Date: Fri, 26 Jan 2007 06:20:15 GMT
+Server: Apache/2.0.52 (CentOS)
+Connection: close
+----------------------------------------------------------
+http://www.realasave.com/rasfront/img/buySellOverlap.gif
+
+GET /rasfront/img/buySellOverlap.gif HTTP/1.1
+Host: www.realasave.com
+User-Agent: Mozilla/5.0 (Macintosh; U; PPC Mac OS X Mach-O; en-US; rv:1.8.1.1) Gecko/20061204 Firefox/2.0.0.1
+Accept: image/png,*/*;q=0.5
+Accept-Language: en-us,en;q=0.5
+Accept-Encoding: gzip,deflate
+Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7
+Keep-Alive: 300
+Connection: keep-alive
+Referer: http://www.realasave.com/rasfront/home.html;jsessionid=16E97B8879FF5042214D1C47A8256CF9
+Cookie: JSESSIONID=16E97B8879FF5042214D1C47A8256CF9
+If-Modified-Since: Mon, 01 Jan 2007 20:21:42 GMT
+If-None-Match: W/"1669-1167682902000"
+Cache-Control: max-age=0
+
+HTTP/1.x 304 Not Modified
+Date: Fri, 26 Jan 2007 06:20:15 GMT
+Server: Apache/2.0.52 (CentOS)
+Connection: close
+----------------------------------------------------------
+http://www.realasave.com/rasfront/img/homeLogo.gif
+
+GET /rasfront/img/homeLogo.gif HTTP/1.1
+Host: www.realasave.com
+User-Agent: Mozilla/5.0 (Macintosh; U; PPC Mac OS X Mach-O; en-US; rv:1.8.1.1) Gecko/20061204 Firefox/2.0.0.1
+Accept: image/png,*/*;q=0.5
+Accept-Language: en-us,en;q=0.5
+Accept-Encoding: gzip,deflate
+Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7
+Keep-Alive: 300
+Connection: keep-alive
+Referer: http://www.realasave.com/rasfront/home.html;jsessionid=16E97B8879FF5042214D1C47A8256CF9
+Cookie: JSESSIONID=16E97B8879FF5042214D1C47A8256CF9
+If-Modified-Since: Mon, 01 Jan 2007 20:21:42 GMT
+If-None-Match: W/"4193-1167682902000"
+Cache-Control: max-age=0
+
+HTTP/1.x 304 Not Modified
+Date: Fri, 26 Jan 2007 06:20:15 GMT
+Server: Apache/2.0.52 (CentOS)
+Connection: close
+----------------------------------------------------------
+http://www.realasave.com/rasfront/img/sellTop.gif
+
+GET /rasfront/img/sellTop.gif HTTP/1.1
+Host: www.realasave.com
+User-Agent: Mozilla/5.0 (Macintosh; U; PPC Mac OS X Mach-O; en-US; rv:1.8.1.1) Gecko/20061204 Firefox/2.0.0.1
+Accept: image/png,*/*;q=0.5
+Accept-Language: en-us,en;q=0.5
+Accept-Encoding: gzip,deflate
+Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7
+Keep-Alive: 300
+Connection: keep-alive
+Referer: http://www.realasave.com/rasfront/home.html;jsessionid=16E97B8879FF5042214D1C47A8256CF9
+Cookie: JSESSIONID=16E97B8879FF5042214D1C47A8256CF9
+If-Modified-Since: Mon, 01 Jan 2007 20:21:42 GMT
+If-None-Match: W/"339-1167682902000"
+Cache-Control: max-age=0
+
+HTTP/1.x 304 Not Modified
+Date: Fri, 26 Jan 2007 06:20:15 GMT
+Server: Apache/2.0.52 (CentOS)
+Connection: close
+----------------------------------------------------------
+http://www.realasave.com/rasfront/img/homSellText.gif
+
+GET /rasfront/img/homSellText.gif HTTP/1.1
+Host: www.realasave.com
+User-Agent: Mozilla/5.0 (Macintosh; U; PPC Mac OS X Mach-O; en-US; rv:1.8.1.1) Gecko/20061204 Firefox/2.0.0.1
+Accept: image/png,*/*;q=0.5
+Accept-Language: en-us,en;q=0.5
+Accept-Encoding: gzip,deflate
+Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7
+Keep-Alive: 300
+Connection: keep-alive
+Referer: http://www.realasave.com/rasfront/home.html;jsessionid=16E97B8879FF5042214D1C47A8256CF9
+Cookie: JSESSIONID=16E97B8879FF5042214D1C47A8256CF9
+If-Modified-Since: Mon, 01 Jan 2007 20:21:42 GMT
+If-None-Match: W/"13685-1167682902000"
+Cache-Control: max-age=0
+
+HTTP/1.x 304 Not Modified
+Date: Fri, 26 Jan 2007 06:20:15 GMT
+Server: Apache/2.0.52 (CentOS)
+Connection: close
+----------------------------------------------------------
+http://www.realasave.com/rasfront/img/sellRight.gif
+
+GET /rasfront/img/sellRight.gif HTTP/1.1
+Host: www.realasave.com
+User-Agent: Mozilla/5.0 (Macintosh; U; PPC Mac OS X Mach-O; en-US; rv:1.8.1.1) Gecko/20061204 Firefox/2.0.0.1
+Accept: image/png,*/*;q=0.5
+Accept-Language: en-us,en;q=0.5
+Accept-Encoding: gzip,deflate
+Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7
+Keep-Alive: 300
+Connection: keep-alive
+Referer: http://www.realasave.com/rasfront/home.html;jsessionid=16E97B8879FF5042214D1C47A8256CF9
+Cookie: JSESSIONID=16E97B8879FF5042214D1C47A8256CF9
+If-Modified-Since: Mon, 01 Jan 2007 20:21:42 GMT
+If-None-Match: W/"538-1167682902000"
+Cache-Control: max-age=0
+
+HTTP/1.x 304 Not Modified
+Date: Fri, 26 Jan 2007 06:20:16 GMT
+Server: Apache/2.0.52 (CentOS)
+Connection: close
+----------------------------------------------------------
+http://www.realasave.com/rasfront/img/buyLeft.gif
+
+GET /rasfront/img/buyLeft.gif HTTP/1.1
+Host: www.realasave.com
+User-Agent: Mozilla/5.0 (Macintosh; U; PPC Mac OS X Mach-O; en-US; rv:1.8.1.1) Gecko/20061204 Firefox/2.0.0.1
+Accept: image/png,*/*;q=0.5
+Accept-Language: en-us,en;q=0.5
+Accept-Encoding: gzip,deflate
+Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7
+Keep-Alive: 300
+Connection: keep-alive
+Referer: http://www.realasave.com/rasfront/home.html;jsessionid=16E97B8879FF5042214D1C47A8256CF9
+Cookie: JSESSIONID=16E97B8879FF5042214D1C47A8256CF9
+If-Modified-Since: Mon, 01 Jan 2007 20:21:42 GMT
+If-None-Match: W/"635-1167682902000"
+Cache-Control: max-age=0
+
+HTTP/1.x 304 Not Modified
+Date: Fri, 26 Jan 2007 06:20:16 GMT
+Server: Apache/2.0.52 (CentOS)
+Connection: close
+----------------------------------------------------------
+http://www.realasave.com/rasfront/img/buyTop.gif
+
+GET /rasfront/img/buyTop.gif HTTP/1.1
+Host: www.realasave.com
+User-Agent: Mozilla/5.0 (Macintosh; U; PPC Mac OS X Mach-O; en-US; rv:1.8.1.1) Gecko/20061204 Firefox/2.0.0.1
+Accept: image/png,*/*;q=0.5
+Accept-Language: en-us,en;q=0.5
+Accept-Encoding: gzip,deflate
+Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7
+Keep-Alive: 300
+Connection: keep-alive
+Referer: http://www.realasave.com/rasfront/home.html;jsessionid=16E97B8879FF5042214D1C47A8256CF9
+Cookie: JSESSIONID=16E97B8879FF5042214D1C47A8256CF9
+If-Modified-Since: Mon, 01 Jan 2007 20:21:42 GMT
+If-None-Match: W/"156-1167682902000"
+Cache-Control: max-age=0
+
+HTTP/1.x 304 Not Modified
+Date: Fri, 26 Jan 2007 06:20:16 GMT
+Server: Apache/2.0.52 (CentOS)
+Connection: close
+----------------------------------------------------------
+http://www.realasave.com/rasfront/img/homeBuyText.gif
+
+GET /rasfront/img/homeBuyText.gif HTTP/1.1
+Host: www.realasave.com
+User-Agent: Mozilla/5.0 (Macintosh; U; PPC Mac OS X Mach-O; en-US; rv:1.8.1.1) Gecko/20061204 Firefox/2.0.0.1
+Accept: image/png,*/*;q=0.5
+Accept-Language: en-us,en;q=0.5
+Accept-Encoding: gzip,deflate
+Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7
+Keep-Alive: 300
+Connection: keep-alive
+Referer: http://www.realasave.com/rasfront/home.html;jsessionid=16E97B8879FF5042214D1C47A8256CF9
+Cookie: JSESSIONID=16E97B8879FF5042214D1C47A8256CF9
+If-Modified-Since: Mon, 01 Jan 2007 20:21:42 GMT
+If-None-Match: W/"13106-1167682902000"
+Cache-Control: max-age=0
+
+HTTP/1.x 304 Not Modified
+Date: Fri, 26 Jan 2007 06:20:16 GMT
+Server: Apache/2.0.52 (CentOS)
+Connection: close
+----------------------------------------------------------
+http://www.realasave.com/rasfront/img/homeBullets.gif
+
+GET /rasfront/img/homeBullets.gif HTTP/1.1
+Host: www.realasave.com
+User-Agent: Mozilla/5.0 (Macintosh; U; PPC Mac OS X Mach-O; en-US; rv:1.8.1.1) Gecko/20061204 Firefox/2.0.0.1
+Accept: image/png,*/*;q=0.5
+Accept-Language: en-us,en;q=0.5
+Accept-Encoding: gzip,deflate
+Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7
+Keep-Alive: 300
+Connection: keep-alive
+Referer: http://www.realasave.com/rasfront/home.html;jsessionid=16E97B8879FF5042214D1C47A8256CF9
+Cookie: JSESSIONID=16E97B8879FF5042214D1C47A8256CF9
+If-Modified-Since: Mon, 01 Jan 2007 20:21:42 GMT
+If-None-Match: W/"1741-1167682902000"
+Cache-Control: max-age=0
+
+HTTP/1.x 304 Not Modified
+Date: Fri, 26 Jan 2007 06:20:16 GMT
+Server: Apache/2.0.52 (CentOS)
+Connection: close
+----------------------------------------------------------
+http://www.realasave.com/rasfront/img/homeSellBullets.gif
+
+GET /rasfront/img/homeSellBullets.gif HTTP/1.1
+Host: www.realasave.com
+User-Agent: Mozilla/5.0 (Macintosh; U; PPC Mac OS X Mach-O; en-US; rv:1.8.1.1) Gecko/20061204 Firefox/2.0.0.1
+Accept: image/png,*/*;q=0.5
+Accept-Language: en-us,en;q=0.5
+Accept-Encoding: gzip,deflate
+Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7
+Keep-Alive: 300
+Connection: keep-alive
+Referer: http://www.realasave.com/rasfront/home.html;jsessionid=16E97B8879FF5042214D1C47A8256CF9
+Cookie: JSESSIONID=16E97B8879FF5042214D1C47A8256CF9
+If-Modified-Since: Mon, 01 Jan 2007 20:21:42 GMT
+If-None-Match: W/"1708-1167682902000"
+Cache-Control: max-age=0
+
+HTTP/1.x 304 Not Modified
+Date: Fri, 26 Jan 2007 06:20:16 GMT
+Server: Apache/2.0.52 (CentOS)
+Connection: close
+----------------------------------------------------------
+http://www.realasave.com/rasfront/img/sellBottom.gif
+
+GET /rasfront/img/sellBottom.gif HTTP/1.1
+Host: www.realasave.com
+User-Agent: Mozilla/5.0 (Macintosh; U; PPC Mac OS X Mach-O; en-US; rv:1.8.1.1) Gecko/20061204 Firefox/2.0.0.1
+Accept: image/png,*/*;q=0.5
+Accept-Language: en-us,en;q=0.5
+Accept-Encoding: gzip,deflate
+Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7
+Keep-Alive: 300
+Connection: keep-alive
+Referer: http://www.realasave.com/rasfront/home.html;jsessionid=16E97B8879FF5042214D1C47A8256CF9
+Cookie: JSESSIONID=16E97B8879FF5042214D1C47A8256CF9
+If-Modified-Since: Mon, 01 Jan 2007 20:21:42 GMT
+If-None-Match: W/"156-1167682902000"
+Cache-Control: max-age=0
+
+HTTP/1.x 304 Not Modified
+Date: Fri, 26 Jan 2007 06:20:16 GMT
+Server: Apache/2.0.52 (CentOS)
+Connection: close
+----------------------------------------------------------
+http://www.realasave.com/rasfront/img/findOverlap.gif
+
+GET /rasfront/img/findOverlap.gif HTTP/1.1
+Host: www.realasave.com
+User-Agent: Mozilla/5.0 (Macintosh; U; PPC Mac OS X Mach-O; en-US; rv:1.8.1.1) Gecko/20061204 Firefox/2.0.0.1
+Accept: image/png,*/*;q=0.5
+Accept-Language: en-us,en;q=0.5
+Accept-Encoding: gzip,deflate
+Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7
+Keep-Alive: 300
+Connection: keep-alive
+Referer: http://www.realasave.com/rasfront/home.html;jsessionid=16E97B8879FF5042214D1C47A8256CF9
+Cookie: JSESSIONID=16E97B8879FF5042214D1C47A8256CF9
+If-Modified-Since: Mon, 01 Jan 2007 20:21:42 GMT
+If-None-Match: W/"3913-1167682902000"
+Cache-Control: max-age=0
+
+HTTP/1.x 304 Not Modified
+Date: Fri, 26 Jan 2007 06:20:16 GMT
+Server: Apache/2.0.52 (CentOS)
+Connection: close
+----------------------------------------------------------
+http://www.realasave.com/rasfront/img/findRight.gif
+
+GET /rasfront/img/findRight.gif HTTP/1.1
+Host: www.realasave.com
+User-Agent: Mozilla/5.0 (Macintosh; U; PPC Mac OS X Mach-O; en-US; rv:1.8.1.1) Gecko/20061204 Firefox/2.0.0.1
+Accept: image/png,*/*;q=0.5
+Accept-Language: en-us,en;q=0.5
+Accept-Encoding: gzip,deflate
+Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7
+Keep-Alive: 300
+Connection: keep-alive
+Referer: http://www.realasave.com/rasfront/home.html;jsessionid=16E97B8879FF5042214D1C47A8256CF9
+Cookie: JSESSIONID=16E97B8879FF5042214D1C47A8256CF9
+If-Modified-Since: Mon, 01 Jan 2007 20:21:42 GMT
+If-None-Match: W/"402-1167682902000"
+Cache-Control: max-age=0
+
+HTTP/1.x 304 Not Modified
+Date: Fri, 26 Jan 2007 06:20:17 GMT
+Server: Apache/2.0.52 (CentOS)
+Connection: close
+----------------------------------------------------------
+http://www.realasave.com/rasfront/img/findTop.gif
+
+GET /rasfront/img/findTop.gif HTTP/1.1
+Host: www.realasave.com
+User-Agent: Mozilla/5.0 (Macintosh; U; PPC Mac OS X Mach-O; en-US; rv:1.8.1.1) Gecko/20061204 Firefox/2.0.0.1
+Accept: image/png,*/*;q=0.5
+Accept-Language: en-us,en;q=0.5
+Accept-Encoding: gzip,deflate
+Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7
+Keep-Alive: 300
+Connection: keep-alive
+Referer: http://www.realasave.com/rasfront/home.html;jsessionid=16E97B8879FF5042214D1C47A8256CF9
+Cookie: JSESSIONID=16E97B8879FF5042214D1C47A8256CF9
+If-Modified-Since: Mon, 01 Jan 2007 20:21:42 GMT
+If-None-Match: W/"145-1167682902000"
+Cache-Control: max-age=0
+
+HTTP/1.x 304 Not Modified
+Date: Fri, 26 Jan 2007 06:20:17 GMT
+Server: Apache/2.0.52 (CentOS)
+Connection: close
+----------------------------------------------------------
+http://www.realasave.com/rasfront/img/findLeft.gif
+
+GET /rasfront/img/findLeft.gif HTTP/1.1
+Host: www.realasave.com
+User-Agent: Mozilla/5.0 (Macintosh; U; PPC Mac OS X Mach-O; en-US; rv:1.8.1.1) Gecko/20061204 Firefox/2.0.0.1
+Accept: image/png,*/*;q=0.5
+Accept-Language: en-us,en;q=0.5
+Accept-Encoding: gzip,deflate
+Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7
+Keep-Alive: 300
+Connection: keep-alive
+Referer: http://www.realasave.com/rasfront/home.html;jsessionid=16E97B8879FF5042214D1C47A8256CF9
+Cookie: JSESSIONID=16E97B8879FF5042214D1C47A8256CF9
+If-Modified-Since: Mon, 01 Jan 2007 20:21:42 GMT
+If-None-Match: W/"303-1167682902000"
+Cache-Control: max-age=0
+
+HTTP/1.x 304 Not Modified
+Date: Fri, 26 Jan 2007 06:20:17 GMT
+Server: Apache/2.0.52 (CentOS)
+Connection: close
+----------------------------------------------------------
+http://www.realasave.com/rasfront/img/findBottom.gif
+
+GET /rasfront/img/findBottom.gif HTTP/1.1
+Host: www.realasave.com
+User-Agent: Mozilla/5.0 (Macintosh; U; PPC Mac OS X Mach-O; en-US; rv:1.8.1.1) Gecko/20061204 Firefox/2.0.0.1
+Accept: image/png,*/*;q=0.5
+Accept-Language: en-us,en;q=0.5
+Accept-Encoding: gzip,deflate
+Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7
+Keep-Alive: 300
+Connection: keep-alive
+Referer: http://www.realasave.com/rasfront/home.html;jsessionid=16E97B8879FF5042214D1C47A8256CF9
+Cookie: JSESSIONID=16E97B8879FF5042214D1C47A8256CF9
+If-Modified-Since: Mon, 01 Jan 2007 20:21:42 GMT
+If-None-Match: W/"204-1167682902000"
+Cache-Control: max-age=0
+
+HTTP/1.x 304 Not Modified
+Date: Fri, 26 Jan 2007 06:20:17 GMT
+Server: Apache/2.0.52 (CentOS)
+Connection: close
+----------------------------------------------------------
+http://www.realasave.com/rasfront/img/homePhone.gif
+
+GET /rasfront/img/homePhone.gif HTTP/1.1
+Host: www.realasave.com
+User-Agent: Mozilla/5.0 (Macintosh; U; PPC Mac OS X Mach-O; en-US; rv:1.8.1.1) Gecko/20061204 Firefox/2.0.0.1
+Accept: image/png,*/*;q=0.5
+Accept-Language: en-us,en;q=0.5
+Accept-Encoding: gzip,deflate
+Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7
+Keep-Alive: 300
+Connection: keep-alive
+Referer: http://www.realasave.com/rasfront/home.html;jsessionid=16E97B8879FF5042214D1C47A8256CF9
+Cookie: JSESSIONID=16E97B8879FF5042214D1C47A8256CF9
+If-Modified-Since: Fri, 05 Jan 2007 22:03:08 GMT
+If-None-Match: W/"1858-1168034588000"
+Cache-Control: max-age=0
+
+HTTP/1.x 304 Not Modified
+Date: Fri, 26 Jan 2007 06:20:17 GMT
+Server: Apache/2.0.52 (CentOS)
+Connection: close
+----------------------------------------------------------
+http://www.realasave.com/rasfront/img/homeRealtorLogos.gif
+
+GET /rasfront/img/homeRealtorLogos.gif HTTP/1.1
+Host: www.realasave.com
+User-Agent: Mozilla/5.0 (Macintosh; U; PPC Mac OS X Mach-O; en-US; rv:1.8.1.1) Gecko/20061204 Firefox/2.0.0.1
+Accept: image/png,*/*;q=0.5
+Accept-Language: en-us,en;q=0.5
+Accept-Encoding: gzip,deflate
+Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7
+Keep-Alive: 300
+Connection: keep-alive
+Referer: http://www.realasave.com/rasfront/home.html;jsessionid=16E97B8879FF5042214D1C47A8256CF9
+Cookie: JSESSIONID=16E97B8879FF5042214D1C47A8256CF9
+If-Modified-Since: Mon, 01 Jan 2007 20:21:42 GMT
+If-None-Match: W/"787-1167682902000"
+Cache-Control: max-age=0
+
+HTTP/1.x 304 Not Modified
+Date: Fri, 26 Jan 2007 06:20:17 GMT
+Server: Apache/2.0.52 (CentOS)
+Connection: close
+----------------------------------------------------------
+http://www.realasave.com/rasfront/img/upperNavL.gif
+
+GET /rasfront/img/upperNavL.gif HTTP/1.1
+Host: www.realasave.com
+User-Agent: Mozilla/5.0 (Macintosh; U; PPC Mac OS X Mach-O; en-US; rv:1.8.1.1) Gecko/20061204 Firefox/2.0.0.1
+Accept: image/png,*/*;q=0.5
+Accept-Language: en-us,en;q=0.5
+Accept-Encoding: gzip,deflate
+Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7
+Keep-Alive: 300
+Connection: keep-alive
+Referer: http://www.realasave.com/rasfront/styles/header.css
+Cookie: JSESSIONID=16E97B8879FF5042214D1C47A8256CF9
+If-Modified-Since: Mon, 01 Jan 2007 20:21:42 GMT
+If-None-Match: W/"178-1167682902000"
+Cache-Control: max-age=0
+
+HTTP/1.x 304 Not Modified
+Date: Fri, 26 Jan 2007 06:20:18 GMT
+Server: Apache/2.0.52 (CentOS)
+Connection: close
+----------------------------------------------------------
+http://www.realasave.com/rasfront/img/Slice_01.gif
+
+GET /rasfront/img/Slice_01.gif HTTP/1.1
+Host: www.realasave.com
+User-Agent: Mozilla/5.0 (Macintosh; U; PPC Mac OS X Mach-O; en-US; rv:1.8.1.1) Gecko/20061204 Firefox/2.0.0.1
+Accept: image/png,*/*;q=0.5
+Accept-Language: en-us,en;q=0.5
+Accept-Encoding: gzip,deflate
+Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7
+Keep-Alive: 300
+Connection: keep-alive
+Referer: http://www.realasave.com/rasfront/styles/header.css
+Cookie: JSESSIONID=16E97B8879FF5042214D1C47A8256CF9
+If-Modified-Since: Mon, 01 Jan 2007 20:21:42 GMT
+If-None-Match: W/"84-1167682902000"
+Cache-Control: max-age=0
+
+HTTP/1.x 304 Not Modified
+Date: Fri, 26 Jan 2007 06:20:18 GMT
+Server: Apache/2.0.52 (CentOS)
+Connection: close
+----------------------------------------------------------
+http://www.realasave.com/rasfront/img/homeBuyTab.gif
+
+GET /rasfront/img/homeBuyTab.gif HTTP/1.1
+Host: www.realasave.com
+User-Agent: Mozilla/5.0 (Macintosh; U; PPC Mac OS X Mach-O; en-US; rv:1.8.1.1) Gecko/20061204 Firefox/2.0.0.1
+Accept: image/png,*/*;q=0.5
+Accept-Language: en-us,en;q=0.5
+Accept-Encoding: gzip,deflate
+Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7
+Keep-Alive: 300
+Connection: keep-alive
+Referer: http://www.realasave.com/rasfront/styles/header.css
+Cookie: JSESSIONID=16E97B8879FF5042214D1C47A8256CF9
+If-Modified-Since: Mon, 01 Jan 2007 20:21:42 GMT
+If-None-Match: W/"647-1167682902000"
+Cache-Control: max-age=0
+
+HTTP/1.x 304 Not Modified
+Date: Fri, 26 Jan 2007 06:20:18 GMT
+Server: Apache/2.0.52 (CentOS)
+Connection: close
+----------------------------------------------------------
+http://www.realasave.com/rasfront/img/upperNavR.gif
+
+GET /rasfront/img/upperNavR.gif HTTP/1.1
+Host: www.realasave.com
+User-Agent: Mozilla/5.0 (Macintosh; U; PPC Mac OS X Mach-O; en-US; rv:1.8.1.1) Gecko/20061204 Firefox/2.0.0.1
+Accept: image/png,*/*;q=0.5
+Accept-Language: en-us,en;q=0.5
+Accept-Encoding: gzip,deflate
+Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7
+Keep-Alive: 300
+Connection: keep-alive
+Referer: http://www.realasave.com/rasfront/styles/header.css
+Cookie: JSESSIONID=16E97B8879FF5042214D1C47A8256CF9
+If-Modified-Since: Mon, 01 Jan 2007 20:21:42 GMT
+If-None-Match: W/"131-1167682902000"
+Cache-Control: max-age=0
+
+HTTP/1.x 304 Not Modified
+Date: Fri, 26 Jan 2007 06:20:18 GMT
+Server: Apache/2.0.52 (CentOS)
+Connection: close
+----------------------------------------------------------
+http://www.realasave.com/rasfront/img/homeSellTab.gif
+
+GET /rasfront/img/homeSellTab.gif HTTP/1.1
+Host: www.realasave.com
+User-Agent: Mozilla/5.0 (Macintosh; U; PPC Mac OS X Mach-O; en-US; rv:1.8.1.1) Gecko/20061204 Firefox/2.0.0.1
+Accept: image/png,*/*;q=0.5
+Accept-Language: en-us,en;q=0.5
+Accept-Encoding: gzip,deflate
+Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7
+Keep-Alive: 300
+Connection: keep-alive
+Referer: http://www.realasave.com/rasfront/styles/header.css
+Cookie: JSESSIONID=16E97B8879FF5042214D1C47A8256CF9
+If-Modified-Since: Mon, 01 Jan 2007 20:21:42 GMT
+If-None-Match: W/"627-1167682902000"
+Cache-Control: max-age=0
+
+HTTP/1.x 304 Not Modified
+Date: Fri, 26 Jan 2007 06:20:18 GMT
+Server: Apache/2.0.52 (CentOS)
+Connection: close
+----------------------------------------------------------
+http://www.realasave.com/rasfront/img/homeFindTab.gif
+
+GET /rasfront/img/homeFindTab.gif HTTP/1.1
+Host: www.realasave.com
+User-Agent: Mozilla/5.0 (Macintosh; U; PPC Mac OS X Mach-O; en-US; rv:1.8.1.1) Gecko/20061204 Firefox/2.0.0.1
+Accept: image/png,*/*;q=0.5
+Accept-Language: en-us,en;q=0.5
+Accept-Encoding: gzip,deflate
+Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7
+Keep-Alive: 300
+Connection: keep-alive
+Referer: http://www.realasave.com/rasfront/styles/header.css
+Cookie: JSESSIONID=16E97B8879FF5042214D1C47A8256CF9
+If-Modified-Since: Mon, 01 Jan 2007 20:21:42 GMT
+If-None-Match: W/"872-1167682902000"
+Cache-Control: max-age=0
+
+HTTP/1.x 304 Not Modified
+Date: Fri, 26 Jan 2007 06:20:18 GMT
+Server: Apache/2.0.52 (CentOS)
+Connection: close
+----------------------------------------------------------
+http://www.realasave.com/rasfront/img/homeBuyButton.gif
+
+GET /rasfront/img/homeBuyButton.gif HTTP/1.1
+Host: www.realasave.com
+User-Agent: Mozilla/5.0 (Macintosh; U; PPC Mac OS X Mach-O; en-US; rv:1.8.1.1) Gecko/20061204 Firefox/2.0.0.1
+Accept: image/png,*/*;q=0.5
+Accept-Language: en-us,en;q=0.5
+Accept-Encoding: gzip,deflate
+Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7
+Keep-Alive: 300
+Connection: keep-alive
+Referer: http://www.realasave.com/rasfront/styles/home.css
+Cookie: JSESSIONID=16E97B8879FF5042214D1C47A8256CF9
+If-Modified-Since: Mon, 01 Jan 2007 20:21:42 GMT
+If-None-Match: W/"2687-1167682902000"
+Cache-Control: max-age=0
+
+HTTP/1.x 304 Not Modified
+Date: Fri, 26 Jan 2007 06:20:18 GMT
+Server: Apache/2.0.52 (CentOS)
+Connection: close
+----------------------------------------------------------
+</pre>
+
+<p>Holy hot tamales was that inefficient -- 30 requests just to render a simple Web page. Here's the results of my changes:</p>
+
+<pre>
+http://realasave.humanoriented.com/home.html
+
+GET /home.html HTTP/1.1
+Host: realasave.humanoriented.com
+User-Agent: Mozilla/5.0 (Macintosh; U; PPC Mac OS X Mach-O; en-US; rv:1.8.1.1) Gecko/20061204 Firefox/2.0.0.1
+Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
+Accept-Language: en-us,en;q=0.5
+Accept-Encoding: gzip,deflate
+Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7
+Keep-Alive: 300
+Connection: keep-alive
+Cookie: __utma=10757037.1220110334.1168539940.1169573361.1169697537.10; __utmz=10757037.1168539940.1.1.utmccn=(direct)|utmcsr=(direct)|utmcmd=(none)
+Cache-Control: max-age=0
+
+HTTP/1.x 200 OK
+Date: Fri, 26 Jan 2007 06:18:57 GMT
+Server: Apache/2.0.54 (Unix) PHP/4.4.4 mod_ssl/2.0.54 OpenSSL/0.9.7e mod_fastcgi/2.4.2 DAV/2 SVN/1.3.2
+Accept-Ranges: bytes
+Vary: Accept-Encoding
+Content-Encoding: gzip
+Content-Length: 1716
+Keep-Alive: timeout=15, max=100
+Connection: Keep-Alive
+Content-Type: text/html
+----------------------------------------------------------
+http://realasave.humanoriented.com/css/main.css
+
+GET /css/main.css HTTP/1.1
+Host: realasave.humanoriented.com
+User-Agent: Mozilla/5.0 (Macintosh; U; PPC Mac OS X Mach-O; en-US; rv:1.8.1.1) Gecko/20061204 Firefox/2.0.0.1
+Accept: text/css,*/*;q=0.1
+Accept-Language: en-us,en;q=0.5
+Accept-Encoding: gzip,deflate
+Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7
+Keep-Alive: 300
+Connection: keep-alive
+Referer: http://realasave.humanoriented.com/home.html
+Cookie: __utma=10757037.1220110334.1168539940.1169573361.1169697537.10; __utmz=10757037.1168539940.1.1.utmccn=(direct)|utmcsr=(direct)|utmcmd=(none)
+If-Modified-Since: Thu, 25 Jan 2007 23:50:51 GMT
+If-None-Match: "a434936-1801-14c10cc0"
+Cache-Control: max-age=0
+
+HTTP/1.x 304 Not Modified
+Date: Fri, 26 Jan 2007 06:18:57 GMT
+Server: Apache/2.0.54 (Unix) PHP/4.4.4 mod_ssl/2.0.54 OpenSSL/0.9.7e mod_fastcgi/2.4.2 DAV/2 SVN/1.3.2
+Connection: Keep-Alive
+Keep-Alive: timeout=15, max=99
+Etag: "a434936-1801-14c10cc0"
+X-Pad: avoid browser bug
+----------------------------------------------------------
+http://realasave.humanoriented.com/img/logo.gif
+
+GET /img/logo.gif HTTP/1.1
+Host: realasave.humanoriented.com
+User-Agent: Mozilla/5.0 (Macintosh; U; PPC Mac OS X Mach-O; en-US; rv:1.8.1.1) Gecko/20061204 Firefox/2.0.0.1
+Accept: image/png,*/*;q=0.5
+Accept-Language: en-us,en;q=0.5
+Accept-Encoding: gzip,deflate
+Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7
+Keep-Alive: 300
+Connection: keep-alive
+Referer: http://realasave.humanoriented.com/home.html
+Cookie: __utma=10757037.1220110334.1168539940.1169573361.1169697537.10; __utmz=10757037.1168539940.1.1.utmccn=(direct)|utmcsr=(direct)|utmcmd=(none)
+If-Modified-Since: Tue, 23 Jan 2007 19:21:48 GMT
+If-None-Match: "bc1bf02-1061-16dfab00"
+Cache-Control: max-age=0
+
+HTTP/1.x 304 Not Modified
+Date: Fri, 26 Jan 2007 06:18:58 GMT
+Server: Apache/2.0.54 (Unix) PHP/4.4.4 mod_ssl/2.0.54 OpenSSL/0.9.7e mod_fastcgi/2.4.2 DAV/2 SVN/1.3.2
+Connection: Keep-Alive
+Keep-Alive: timeout=15, max=98
+Etag: "bc1bf02-1061-16dfab00"
+X-Pad: avoid browser bug
+----------------------------------------------------------
+http://realasave.humanoriented.com/img/userBox-right-curve.gif
+
+GET /img/userBox-right-curve.gif HTTP/1.1
+Host: realasave.humanoriented.com
+User-Agent: Mozilla/5.0 (Macintosh; U; PPC Mac OS X Mach-O; en-US; rv:1.8.1.1) Gecko/20061204 Firefox/2.0.0.1
+Accept: image/png,*/*;q=0.5
+Accept-Language: en-us,en;q=0.5
+Accept-Encoding: gzip,deflate
+Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7
+Keep-Alive: 300
+Connection: keep-alive
+Referer: http://realasave.humanoriented.com/home.html
+Cookie: __utma=10757037.1220110334.1168539940.1169573361.1169697537.10; __utmz=10757037.1168539940.1.1.utmccn=(direct)|utmcsr=(direct)|utmcmd=(none)
+If-Modified-Since: Wed, 24 Jan 2007 17:40:40 GMT
+If-None-Match: "bfc13fa-83-cb08b600"
+Cache-Control: max-age=0
+
+HTTP/1.x 304 Not Modified
+Date: Fri, 26 Jan 2007 06:18:58 GMT
+Server: Apache/2.0.54 (Unix) PHP/4.4.4 mod_ssl/2.0.54 OpenSSL/0.9.7e mod_fastcgi/2.4.2 DAV/2 SVN/1.3.2
+Connection: Keep-Alive
+Keep-Alive: timeout=15, max=97
+Etag: "bfc13fa-83-cb08b600"
+----------------------------------------------------------
+http://realasave.humanoriented.com/img/userBox-left-curve.gif
+
+GET /img/userBox-left-curve.gif HTTP/1.1
+Host: realasave.humanoriented.com
+User-Agent: Mozilla/5.0 (Macintosh; U; PPC Mac OS X Mach-O; en-US; rv:1.8.1.1) Gecko/20061204 Firefox/2.0.0.1
+Accept: image/png,*/*;q=0.5
+Accept-Language: en-us,en;q=0.5
+Accept-Encoding: gzip,deflate
+Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7
+Keep-Alive: 300
+Connection: keep-alive
+Referer: http://realasave.humanoriented.com/home.html
+Cookie: __utma=10757037.1220110334.1168539940.1169573361.1169697537.10; __utmz=10757037.1168539940.1.1.utmccn=(direct)|utmcsr=(direct)|utmcmd=(none)
+If-Modified-Since: Wed, 24 Jan 2007 17:40:39 GMT
+If-None-Match: "bfc13f9-b2-caf973c0"
+Cache-Control: max-age=0
+
+HTTP/1.x 304 Not Modified
+Date: Fri, 26 Jan 2007 06:18:58 GMT
+Server: Apache/2.0.54 (Unix) PHP/4.4.4 mod_ssl/2.0.54 OpenSSL/0.9.7e mod_fastcgi/2.4.2 DAV/2 SVN/1.3.2
+Connection: Keep-Alive
+Keep-Alive: timeout=15, max=100
+Etag: "bfc13f9-b2-caf973c0"
+----------------------------------------------------------
+http://realasave.humanoriented.com/img/logo-realtor.gif
+
+GET /img/logo-realtor.gif HTTP/1.1
+Host: realasave.humanoriented.com
+User-Agent: Mozilla/5.0 (Macintosh; U; PPC Mac OS X Mach-O; en-US; rv:1.8.1.1) Gecko/20061204 Firefox/2.0.0.1
+Accept: image/png,*/*;q=0.5
+Accept-Language: en-us,en;q=0.5
+Accept-Encoding: gzip,deflate
+Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7
+Keep-Alive: 300
+Connection: keep-alive
+Referer: http://realasave.humanoriented.com/home.html
+Cookie: __utma=10757037.1220110334.1168539940.1169573361.1169697537.10; __utmz=10757037.1168539940.1.1.utmccn=(direct)|utmcsr=(direct)|utmcmd=(none)
+If-Modified-Since: Tue, 23 Jan 2007 20:32:47 GMT
+If-None-Match: "bc1bf06-313-14bad9c0"
+Cache-Control: max-age=0
+
+HTTP/1.x 304 Not Modified
+Date: Fri, 26 Jan 2007 06:18:58 GMT
+Server: Apache/2.0.54 (Unix) PHP/4.4.4 mod_ssl/2.0.54 OpenSSL/0.9.7e mod_fastcgi/2.4.2 DAV/2 SVN/1.3.2
+Connection: Keep-Alive
+Keep-Alive: timeout=15, max=96
+Etag: "bc1bf06-313-14bad9c0"
+----------------------------------------------------------
+http://realasave.humanoriented.com/img/phone.gif
+
+GET /img/phone.gif HTTP/1.1
+Host: realasave.humanoriented.com
+User-Agent: Mozilla/5.0 (Macintosh; U; PPC Mac OS X Mach-O; en-US; rv:1.8.1.1) Gecko/20061204 Firefox/2.0.0.1
+Accept: image/png,*/*;q=0.5
+Accept-Language: en-us,en;q=0.5
+Accept-Encoding: gzip,deflate
+Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7
+Keep-Alive: 300
+Connection: keep-alive
+Referer: http://realasave.humanoriented.com/home.html
+Cookie: __utma=10757037.1220110334.1168539940.1169573361.1169697537.10; __utmz=10757037.1168539940.1.1.utmccn=(direct)|utmcsr=(direct)|utmcmd=(none)
+If-Modified-Since: Tue, 23 Jan 2007 20:33:22 GMT
+If-None-Match: "bc1bf07-742-16d0e880"
+Cache-Control: max-age=0
+
+HTTP/1.x 304 Not Modified
+Date: Fri, 26 Jan 2007 06:18:58 GMT
+Server: Apache/2.0.54 (Unix) PHP/4.4.4 mod_ssl/2.0.54 OpenSSL/0.9.7e mod_fastcgi/2.4.2 DAV/2 SVN/1.3.2
+Connection: Keep-Alive
+Keep-Alive: timeout=15, max=99
+Etag: "bc1bf07-742-16d0e880"
+----------------------------------------------------------
+http://realasave.humanoriented.com/img/tabs.gif
+
+GET /img/tabs.gif HTTP/1.1
+Host: realasave.humanoriented.com
+User-Agent: Mozilla/5.0 (Macintosh; U; PPC Mac OS X Mach-O; en-US; rv:1.8.1.1) Gecko/20061204 Firefox/2.0.0.1
+Accept: image/png,*/*;q=0.5
+Accept-Language: en-us,en;q=0.5
+Accept-Encoding: gzip,deflate
+Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7
+Keep-Alive: 300
+Connection: keep-alive
+Referer: http://realasave.humanoriented.com/css/main.css
+Cookie: __utma=10757037.1220110334.1168539940.1169573361.1169697537.10; __utmz=10757037.1168539940.1.1.utmccn=(direct)|utmcsr=(direct)|utmcmd=(none)
+If-Modified-Since: Wed, 24 Jan 2007 19:39:35 GMT
+If-None-Match: "bfc13ff-201b-74502bc0"
+Cache-Control: max-age=0
+
+HTTP/1.x 304 Not Modified
+Date: Fri, 26 Jan 2007 06:18:58 GMT
+Server: Apache/2.0.54 (Unix) PHP/4.4.4 mod_ssl/2.0.54 OpenSSL/0.9.7e mod_fastcgi/2.4.2 DAV/2 SVN/1.3.2
+Connection: Keep-Alive
+Keep-Alive: timeout=15, max=95
+Etag: "bfc13ff-201b-74502bc0"
+X-Pad: avoid browser bug
+----------------------------------------------------------
+http://realasave.humanoriented.com/img/home-splash.gif
+
+GET /img/home-splash.gif HTTP/1.1
+Host: realasave.humanoriented.com
+User-Agent: Mozilla/5.0 (Macintosh; U; PPC Mac OS X Mach-O; en-US; rv:1.8.1.1) Gecko/20061204 Firefox/2.0.0.1
+Accept: image/png,*/*;q=0.5
+Accept-Language: en-us,en;q=0.5
+Accept-Encoding: gzip,deflate
+Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7
+Keep-Alive: 300
+Connection: keep-alive
+Referer: http://realasave.humanoriented.com/css/main.css
+Cookie: __utma=10757037.1220110334.1168539940.1169573361.1169697537.10; __utmz=10757037.1168539940.1.1.utmccn=(direct)|utmcsr=(direct)|utmcmd=(none)
+If-Modified-Since: Tue, 23 Jan 2007 20:39:23 GMT
+If-None-Match: "bc1bf08-8ea9-2c5554c0"
+Cache-Control: max-age=0
+
+HTTP/1.x 304 Not Modified
+Date: Fri, 26 Jan 2007 06:18:58 GMT
+Server: Apache/2.0.54 (Unix) PHP/4.4.4 mod_ssl/2.0.54 OpenSSL/0.9.7e mod_fastcgi/2.4.2 DAV/2 SVN/1.3.2
+Connection: Keep-Alive
+Keep-Alive: timeout=15, max=98
+Etag: "bc1bf08-8ea9-2c5554c0"
+X-Pad: avoid browser bug
+----------------------------------------------------------
+http://realasave.humanoriented.com/img/btnLearn.gif
+
+GET /img/btnLearn.gif HTTP/1.1
+Host: realasave.humanoriented.com
+User-Agent: Mozilla/5.0 (Macintosh; U; PPC Mac OS X Mach-O; en-US; rv:1.8.1.1) Gecko/20061204 Firefox/2.0.0.1
+Accept: image/png,*/*;q=0.5
+Accept-Language: en-us,en;q=0.5
+Accept-Encoding: gzip,deflate
+Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7
+Keep-Alive: 300
+Connection: keep-alive
+Referer: http://realasave.humanoriented.com/css/main.css
+Cookie: __utma=10757037.1220110334.1168539940.1169573361.1169697537.10; __utmz=10757037.1168539940.1.1.utmccn=(direct)|utmcsr=(direct)|utmcmd=(none)
+If-Modified-Since: Wed, 24 Jan 2007 21:26:46 GMT
+If-None-Match: "bc1bf0a-10c6-f3a17180"
+Cache-Control: max-age=0
+
+HTTP/1.x 304 Not Modified
+Date: Fri, 26 Jan 2007 06:18:57 GMT
+Server: Apache/2.0.54 (Unix) PHP/4.4.4 mod_ssl/2.0.54 OpenSSL/0.9.7e mod_fastcgi/2.4.2 DAV/2 SVN/1.3.2
+Connection: Keep-Alive
+Keep-Alive: timeout=15, max=94
+Etag: "bc1bf0a-10c6-f3a17180"
+X-Pad: avoid browser bug
+----------------------------------------------------------	
+</pre>
+
+<p>Without a doubt, this is much better -- 10 requests.</p>
+
+<p>Needless to day this sort of work is trivial -- really! Any developer you hire should know how http works, how to use CSS, and why standards-compliant semantically-meaningful markup is important. <strong>At minimum</strong>.</p>
+
+<p id="footer">Last Update: <!--#flastmod file="html-markup-done-right.html" --></p>
+</body>
+</html>

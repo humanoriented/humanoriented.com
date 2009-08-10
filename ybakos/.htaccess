@@ -1,0 +1,5 @@
+AddHandler server-parsed .html
+AuthType Basic
+AuthUserFile /home/humorsys/humanoriented.com/ybakos/.htpasswd
+AuthName "Staff Credentials"
+require valid-user
