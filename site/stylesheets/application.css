@@ -660,14 +660,14 @@ body {
 .container h2 {
   color: #8d8d8d; }
 .container .pullquote {
-  font-family: "Times New Roman", Times, Baskerville, Georgia, serif;
-  margin-top: 137px;
-  color: #d0d0d0;
   padding-left: 240px;
   display: inline;
   float: left;
   margin-right: 0;
   width: 470px;
+  font-family: "Times New Roman", Times, Baskerville, Georgia, serif;
+  margin-top: 137px;
+  color: #d0d0d0;
   font-size: 1.3em;
   line-height: 2.3em; }
   * html .container .pullquote {
