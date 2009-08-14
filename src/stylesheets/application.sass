@@ -25,34 +25,37 @@ body
     :color = !link_color
   a:active, a:hover
     :color = !orange_headers
-  h1
-    +column(6)
-    :margin-top 113px
-    :color = !orange_headers
-    :letter-spacing -3px
-    :font-size 5em
-    :font-weight bold
-    :line-height .8em
+  .masthead
+    +column(24)
+    h1
+      +column(7)
+      :margin-top 113px
+      :color = !orange_headers
+      :letter-spacing -3px
+      :font-size 5em
+      :font-weight bold
+      :line-height .8em
+      :padding-bottom 50px
+    .pullquote
+      +prepend(5)
+      +column(12,true)
+      :font-family "Times New Roman", Times, Baskerville, Georgia, serif
+      :margin-top 137px
+      :color = !light_text
+      :font-size 15px
+      :line-height 2.3em
   h2
     :color = !med_text
-  .pullquote
-    +prepend(6)
-    +column(12,true)
-    :font-family "Times New Roman", Times, Baskerville, Georgia, serif
-    :margin-top 137px
-    :color = !light_text
-    :font-size 15px
-    :line-height 2.3em
+    :margin-bottom 0px
   .topic
     +column(4)
     +topic_column
-  .widetopic
-    +column(8)
-    +topic_column
   .topic.first
-    :clear both
+    :clear left
   .topic.last
     +column(4, true)
+  .contact
+    :margin-top 100px
   .footer
     +column(24, true)
     p
