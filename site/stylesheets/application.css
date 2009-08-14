@@ -644,34 +644,43 @@ body {
   color: #fd765d; }
 .container a:active, .container a:hover {
   color: #dd462d; }
-.container h1 {
+.container .masthead {
   display: inline;
   float: left;
   margin-right: 10px;
-  width: 230px;
-  margin-top: 113px;
-  color: #dd462d;
-  letter-spacing: -3px;
-  font-size: 5em;
-  font-weight: bold;
-  line-height: .8em; }
-  * html .container h1 {
+  width: 950px; }
+  * html .container .masthead {
     overflow-x: hidden; }
+  .container .masthead h1 {
+    display: inline;
+    float: left;
+    margin-right: 10px;
+    width: 270px;
+    margin-top: 113px;
+    color: #dd462d;
+    letter-spacing: -3px;
+    font-size: 5em;
+    font-weight: bold;
+    line-height: .8em;
+    padding-bottom: 50px; }
+    * html .container .masthead h1 {
+      overflow-x: hidden; }
+  .container .masthead .pullquote {
+    padding-left: 200px;
+    display: inline;
+    float: left;
+    margin-right: 0;
+    width: 470px;
+    font-family: "Times New Roman", Times, Baskerville, Georgia, serif;
+    margin-top: 137px;
+    color: #d0d0d0;
+    font-size: 15px;
+    line-height: 2.3em; }
+    * html .container .masthead .pullquote {
+      overflow-x: hidden; }
 .container h2 {
-  color: #8d8d8d; }
-.container .pullquote {
-  padding-left: 240px;
-  display: inline;
-  float: left;
-  margin-right: 0;
-  width: 470px;
-  font-family: "Times New Roman", Times, Baskerville, Georgia, serif;
-  margin-top: 137px;
-  color: #d0d0d0;
-  font-size: 15px;
-  line-height: 2.3em; }
-  * html .container .pullquote {
-    overflow-x: hidden; }
+  color: #8d8d8d;
+  margin-bottom: 0px; }
 .container .topic {
   display: inline;
   float: left;
@@ -683,19 +692,8 @@ body {
     overflow-x: hidden; }
   .container .topic p {
     color: #8d8d8d; }
-.container .widetopic {
-  display: inline;
-  float: left;
-  margin-right: 10px;
-  width: 310px;
-  border-top: 1px solid;
-  border-color: #292929; }
-  * html .container .widetopic {
-    overflow-x: hidden; }
-  .container .widetopic p {
-    color: #8d8d8d; }
 .container .topic.first {
-  clear: both; }
+  clear: left; }
 .container .topic.last {
   display: inline;
   float: left;
@@ -703,6 +701,8 @@ body {
   width: 150px; }
   * html .container .topic.last {
     overflow-x: hidden; }
+.container .contact {
+  margin-top: 100px; }
 .container .footer {
   display: inline;
   float: left;
