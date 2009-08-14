@@ -1,4 +1,4 @@
-set :application, "TEST"
+set :application, "humanoriented.com"
 set :repository,  "git@github.com:ybakos/hos_www.git"
 set :scm, :git
 set :deploy_to, "/home/humorsys/#{application}"
