@@ -1,1 +1,0 @@
-ssh humorsys@humanoriented.com
