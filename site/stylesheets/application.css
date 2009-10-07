@@ -671,6 +671,7 @@ body {
     float: left;
     margin-right: 0;
     width: 470px;
+    -webkit-text-size-adjust: none;
     font-family: "Times New Roman", Times, Baskerville, Georgia, serif;
     margin-top: 137px;
     color: #d0d0d0;
