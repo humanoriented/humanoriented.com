@@ -10,8 +10,8 @@
     %meta{'http-equiv' => 'Content-Style-Type', :content => 'text/css'}
     = stylesheets :application
     = small_devices_stylesheet
-    %link{:media => 'only screen and (max-device-width: 480px)', :href => 'small-device.css' :type=> "text/css", :rel=>"stylesheet"}
-    %link{:rel => 'shortcut icon', :href =>'/images/favicon.ico' :type => 'image/x-icon'}
+    %link{:media => 'only screen and (max-device-width: 480px)', :href => 'small-device.css', :type=> "text/css", :rel=>"stylesheet"}
+    %link{:rel => 'shortcut icon', :href =>'/images/favicon.ico', :type => 'image/x-icon'}
   %body
     .container
       = yield
