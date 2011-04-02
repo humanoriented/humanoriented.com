@@ -1,65 +1,65 @@
-@import compass/reset.sass
-@import blueprint/screen.sass
+@import "compass/reset"
+@import "blueprint"
 
 +blueprint-grid
 +blueprint-typography
 
-!dark_background = #121212
-!dark_text = #292929
-!med_text = #8d8d8d
-!light_text = #D0D0D0
-!orange_headers = #dd462d
-!link_color = #fd765d
+$dark_background: #121212
+$dark_text: #292929
+$med_text: #8d8d8d
+$light_text: #D0D0D0
+$orange_headers: #dd462d
+$link_color: #fd765d
 
 =topic_column
-  :border-top 1px solid
-  :border-color = !dark_text
+  border-top: 1px solid
+  border-color: $dark_text
   p
-    :color = !med_text
+    color: $med_text
 
 body
-  :background = !dark_background
+  background: $dark_background
   
 .container
   a:link, a:visited
-    :color = !link_color
+    color: $link_color
   a:active, a:hover
-    :color = !orange_headers
+    color: $orange_headers
   .masthead
     +column(24)
     h1
       +column(7)
-      :margin-top 113px
-      :color = !orange_headers
-      :letter-spacing -3px
-      :font-size 5em
-      :font-weight bold
-      :line-height .8em
-      :padding-bottom 50px
+      margin-top: 113px
+      color: $orange_headers
+      letter-spacing: -3px
+      font-size: 5em
+      font-weight: bold
+      line-height: .8em
+      padding-bottom: 50px
     .pullquote
       +prepend(5)
       +column(12,true)
-      :-webkit-text-size-adjust none
-      :font-family "Times New Roman", Times, Baskerville, Georgia, serif
-      :margin-top 137px
-      :color = !light_text
-      :font-size 15px
-      :line-height 2.3em
+      -webkit-text-size-adjust: none
+      font-family: "Times New Roman", Times, Baskerville, Georgia, serif
+      margin-top: 137px
+      color: $light_text
+      font-size: 15px
+      line-height: 2.3em
       p
         :margin 0px
   h2
-    :color = !med_text
-    :margin-bottom 0px
+    color: $med_text
+    margin-bottom: 0px
   .topic
     +column(4)
     +topic_column
   .topic.first
-    :clear left
+    clear: left
   .topic.last
     +column(4, true)
   .contact
-    :margin-top 100px
+    margin-top: 100px
   .footer
     +column(24, true)
     p
-      :text-align center
+      text-align: center
