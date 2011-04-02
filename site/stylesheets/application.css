@@ -1035,15 +1035,19 @@ body {
   background: #121212;
 }
 
-/* line 24 */
+/* line 23 */
+.container {
+  background: url("/images/background_overlay.png");
+}
+/* line 25 */
 .container a:link, .container a:visited {
   color: #fd765d;
 }
-/* line 26 */
+/* line 27 */
 .container a:active, .container a:hover {
   color: #dd462d;
 }
-/* line 28 */
+/* line 29 */
 .container .masthead {
   display: inline;
   float: left;
@@ -1054,7 +1058,7 @@ body {
 * html .container .masthead {
   overflow-x: hidden;
 }
-/* line 30 */
+/* line 31 */
 .container .masthead h1 {
   display: inline;
   float: left;
@@ -1072,7 +1076,7 @@ body {
 * html .container .masthead h1 {
   overflow-x: hidden;
 }
-/* line 39 */
+/* line 40 */
 .container .masthead .pullquote {
   padding-left: 200px;
   display: inline;
@@ -1090,16 +1094,16 @@ body {
 * html .container .masthead .pullquote {
   overflow-x: hidden;
 }
-/* line 48 */
+/* line 49 */
 .container .masthead .pullquote p {
   margin: 0px;
 }
-/* line 50 */
+/* line 51 */
 .container h2 {
   color: #8d8d8d;
   margin-bottom: 0px;
 }
-/* line 53 */
+/* line 54 */
 .container .topic {
   display: inline;
   float: left;
@@ -1116,11 +1120,11 @@ body {
 .container .topic p {
   color: #8d8d8d;
 }
-/* line 56 */
+/* line 57 */
 .container .topic.first {
   clear: left;
 }
-/* line 58 */
+/* line 59 */
 .container .topic.last {
   display: inline;
   float: left;
@@ -1131,11 +1135,11 @@ body {
 * html .container .topic.last {
   overflow-x: hidden;
 }
-/* line 60 */
+/* line 61 */
 .container .contact {
   margin-top: 100px;
 }
-/* line 62 */
+/* line 63 */
 .container .footer {
   display: inline;
   float: left;
@@ -1146,7 +1150,37 @@ body {
 * html .container .footer {
   overflow-x: hidden;
 }
-/* line 64 */
+/* line 65 */
 .container .footer p {
   text-align: center;
+}
+
+/* line 68 */
+.research h2 {
+  color: #ff6347;
+}
+
+/* line 70 */
+.design h2 {
+  color: #ffa73f;
+}
+
+/* line 72 */
+.prototype h2 {
+  color: #dbc300;
+}
+
+/* line 74 */
+.test h2 {
+  color: #83cf33;
+}
+
+/* line 76 */
+.develop h2 {
+  color: #6bbbbf;
+}
+
+/* line 78 */
+.scale h2 {
+  color: #cccccc;
 }
