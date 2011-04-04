@@ -5,7 +5,7 @@
     %meta{'http-equiv' => 'content_type', :content => 'text/html;charset=utf-8'}
     %title Human-Oriented Systems, a Colorado Software Development Studio
     %meta{:name => 'keywords', :content => 'denver software developer, denver programmer, programmer, software development, denver iphone developer, denver rails developer, ruby on rails, iphone, user interface, human-computer interaction, software design, ui design, standards compliance, site redesign, application development, application design, living software, human-oriented design, human-oriented software, user-centered design, user-centered software, artificial intelligence, machine learning, Yong Bakos'}
-    %meta{:name => 'description', :content => 'Human-Oriented Systems is a software development studio specializing in project recovery, Web / network applications and iPhone application development.'}
+    %meta{:name => 'description', :content => 'Human-Oriented Systems is a software development studio specializing in project recovery, Web / network applications and iOS application development.'}
     %meta{:name => 'author', :content => 'Yong Bakos on behalf of Human-Oriented Systems'}
     %meta{'http-equiv' => 'Content-Style-Type', :content => 'text/css'}
     = stylesheets :application
@@ -15,4 +15,18 @@
   %body
     .container
       = yield
+      .topic.contact.first
+        %h2 Contact
+        %p
+          8 East First Avenue
+          %br
+          Suite 109
+          %br
+          Denver, CO 80203
+          %br
+          (303) 997 2463
+          %br
+          = link 'info@humanoriented.com', 'mailto:info@humanoriented.com'
+      .footer
+        %p &copy Human-Oriented Systems. All rights reserved.
   = partial('google_analytics')

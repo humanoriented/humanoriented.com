@@ -37,6 +37,7 @@ body
       font-weight: bold
       line-height: .8em
       padding-bottom: 50px
+      text-shadow: 5px 5px 3px #000
     .pullquote
       +prepend(5)
       +column(12,true)
@@ -47,7 +48,8 @@ body
       font-size: 15px
       line-height: 2.3em
       p
-        :margin 0px
+        text-shadow: -1px 5px 3px #000
+        margin: 0px
   h2
     color: $med_text
     margin-bottom: 0px
@@ -62,6 +64,7 @@ body
     margin-top: 100px
   .footer
     +column(24, true)
+    padding-bottom: 4em
     p
       text-align: center
 
@@ -77,3 +80,4 @@ body
   color: #6BBBBF
 .scale h2
   color: #CCC
+  text-shadow: 0 0 20px #fefcc9, 10px -10px 30px #feec85, -20px -20px 40px #ffae34, 20px -40px 50px #ec760c, -20px -60px 60px #cd4606, 0 -80px 70px #973716, 10px -90px 80px #451b0e
