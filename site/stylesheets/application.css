@@ -1086,7 +1086,7 @@ body {
   width: 470px;
   -webkit-text-size-adjust: none;
   font-family: "Times New Roman", Times, Baskerville, Georgia, serif;
-  margin-top: 137px;
+  margin-top: 125px;
   color: #d0d0d0;
   font-size: 15px;
   line-height: 2.3em;
@@ -1187,4 +1187,33 @@ body {
 .scale h2 {
   color: #cccccc;
   text-shadow: 0 0 20px #fefcc9, 10px -10px 30px #feec85, -20px -20px 40px #ffae34, 20px -40px 50px #ec760c, -20px -60px 60px #cd4606, 0 -80px 70px #973716, 10px -90px 80px #451b0e;
+}
+
+/* line 86 */
+.pitch {
+  border-top: 1px solid;
+  border-color: #292929;
+  display: inline;
+  float: right;
+  position: relative;
+  margin: 0 -160px 1.5em 160px;
+  display: inline;
+  float: left;
+  margin-right: 0;
+  width: 630px;
+  margin-top: 100px;
+}
+/* line 17 */
+.pitch p {
+  color: #8d8d8d;
+}
+/* line 138, /Library/Ruby/Gems/1.8/gems/compass-0.10.6/frameworks/blueprint/stylesheets/./blueprint/_grid.scss */
+* html .pitch {
+  overflow-x: hidden;
+}
+/* line 91 */
+.pitch h2 {
+  font-size: 3.6em;
+  letter-spacing: -0.04em;
+  color: #883333;
 }
