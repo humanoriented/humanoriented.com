@@ -1,70 +1,93 @@
-@import compass/reset.sass
-@import blueprint/screen.sass
+@import "compass/reset"
+@import "blueprint"
 
 +blueprint-grid
 +blueprint-typography
 
-!dark_background = #121212
-!dark_text = #292929
-!med_text = #8d8d8d
-!light_text = #D0D0D0
-!orange_headers = #dd462d
-!link_color = #fd765d
+$dark_background: #121212
+$dark_text: #292929
+$med_text: #8d8d8d
+$light_text: #D0D0D0
+$orange_headers: #dd462d
+$link_color: #fd765d
 
 =topic_column
-  :border-top 1px solid
-  :border-color = !dark_text
+  border-top: 1px solid
+  border-color: $dark_text
   p
-    :color = !med_text
+    color: $med_text
 
 body
-  :background = !dark_background
+  background: $dark_background
   
 .container
+  background: url('/images/background_overlay.png')
   a:link, a:visited
-    :color = !link_color
+    color: $link_color
   a:active, a:hover
-    :color = !orange_headers
+    color: $orange_headers
   .masthead
     +column(24)
     h1
       +column(7)
-      :margin-top 113px
-      :color = !orange_headers
-      :letter-spacing -3px
-      :font-size 5em
-      :font-weight bold
-      :line-height .8em
-      :padding-bottom 50px
+      margin-top: 113px
+      color: $orange_headers
+      letter-spacing: -3px
+      font-size: 5em
+      font-weight: bold
+      line-height: .8em
+      padding-bottom: 50px
+      text-shadow: 5px 5px 3px #000
     .pullquote
       +prepend(5)
       +column(12,true)
-      :-webkit-text-size-adjust none
-      :font-family "Times New Roman", Times, Baskerville, Georgia, serif
-      :margin-top 137px
-      :color = !light_text
-      :font-size 15px
-      :line-height 2.3em
+      -webkit-text-size-adjust: none
+      font-family: "Times New Roman", Times, Baskerville, Georgia, serif
+      margin-top: 125px
+      color: $light_text
+      font-size: 15px
+      line-height: 2.3em
       p
-        :margin 0px
+        text-shadow: -1px 5px 3px #000
+        margin: 0px
   h2
-    :color = !med_text
-    :margin-bottom 0px
+    color: $med_text
+    margin-bottom: 0px
   .topic
     +column(4)
     +topic_column
   .topic.first
-    :clear left
+    clear: left
   .topic.last
     +column(4, true)
   .contact
-    :margin-top 100px
+    margin-top: 100px
   .footer
     +column(24, true)
+    padding-bottom: 4em
     p
-      :text-align center
-  .feature
-    +push(8)
-    +column(12, true)
-    +topic_column
-    margin-top: 100px
+      text-align: center
+
+.research h2
+  color: #FF6347
+.design h2
+  color: #FFA73F
+.prototype h2
+  color: #DBC300
+.test h2
+  color: #83CF33
+.develop h2
+  color: #6BBBBF
+.scale h2
+  color: #CCC
+  text-shadow: 0 0 20px #fefcc9, 10px -10px 30px #feec85, -20px -20px 40px #ffae34, 20px -40px 50px #ec760c, -20px -60px 60px #cd4606, 0 -80px 70px #973716, 10px -90px 80px #451b0e
+
+.pitch
+  +topic_column
+  +push(4)
+  +column(16, true)
+  margin-top: 100px
+  h2
+    font-size: 3.6em
+    letter-spacing: -.04em
+    color: #833
