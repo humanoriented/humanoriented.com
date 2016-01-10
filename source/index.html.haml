@@ -11,8 +11,7 @@
       %i Human-Oriented Systems
       is a software development studio.
     %p
-      Located in Denver, CO USA, we strive to improve the craft of programming and
-      employ the best people, tools and practices to deliver world-class software ecosystems.
+      Located in #{data.location.city}, #{data.location.state} USA, we employ the best people, tools and practices to deliver world-class software ecosystems.
 
 %br
 
@@ -37,12 +36,12 @@
 .topic.contact.first
   %h2 Contact
   %p
-    8 East First Avenue
+    = data.location.address
     %br
-    Suite 109
+    = data.location.address2
     %br
-    Denver, CO 80203
+    #{data.location.city}, #{data.location.state_abbr} #{data.location.zip_code}
     %br
     (303) 997 2463
     %br
-    = link 'info@humanoriented.com', 'mailto:info@humanoriented.com'
+    = link_to 'info@humanoriented.com', 'mailto:info@humanoriented.com'

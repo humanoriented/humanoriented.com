@@ -1,3 +1,2 @@
 RedirectMatch /img/(.*) http://humanoriented.com/images/$1
 RedirectMatch /basecamp/(.*) http://projects.humanoriented.com/basecamp/$1
-AddType application/xhtml+xml .xhtml

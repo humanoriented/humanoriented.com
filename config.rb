@@ -23,6 +23,7 @@ configure :development do
   activate :livereload
 end
 
+set :haml, { :attr_wrapper => '"' }
 ###
 # Helpers
 ###
