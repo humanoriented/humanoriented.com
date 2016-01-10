@@ -24,6 +24,22 @@ configure :development do
 end
 
 set :haml, { :attr_wrapper => '"' }
+
+case ENV['TARGET'].to_s.downcase
+when 'production'
+  activate :deploy do |deploy|
+    deploy.deploy_method   = :rsync
+    deploy.host            = 'www.example.com'
+    deploy.path            = '/srv/www/production-site'
+  end
+else
+  activate :deploy do |deploy|
+    deploy.deploy_method   = :rsync
+    deploy.host            = 'staging.example.com'
+    deploy.path            = '/srv/www/staging-site'
+  end
+end
+
 ###
 # Helpers
 ###
